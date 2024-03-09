@@ -1,0 +1,139 @@
+Consider a a tagged (marked) portion $\Sigma$ of fluid with center of mass at $(x_1(s), x_2(s), x_3(s))$ at time $s$. Let $m(x)$ and $V(s)$ be the mass and volumn of this portion $\Sigma$ of fluid at time $s$.The portion of fluid particle moves aling with fluid. see as (2/21 fig1)
+
+For a time $t>0$, suppose at time $t $, the tagged portion $\Sigma$ of fluid particles is a cube centered at $(x_1, x_2, x_3)$ with side lengh $\ell_1,\ell_2,\ell_3$​, see as (2/21 fig2 - textbook p.4),where 
+\begin{equation}
+\begin{aligned}
+P_1(s) &= \left(x_1(s)-\frac{\ell_1(s)}{2},x_2(s),x_3(s)\right)\\
+P_2(s) &= \left(x_1(s)+\frac{\ell_1(s)}{2},x_2(s),x_3(s)\right)\\
+\end{aligned}
+\end{equation}
+
+
+
+We assume that $\Sigma$ remain a cube for $s\approx t$ with side length, $\ell_1(s),\ell_2(s),\ell_3(s)$, then $V(s) = \ell_1(s)\cdot\ell_2(s)\cdot\ell_3(s)$
+\begin{equation}
+\frac{dV(s)}{ds}\Bigg|_{s=t}
+=   \frac{d\ell_1(s)}{ds}\Bigg|_{s=t} \ell_2(s)\ell_3(s)
++\frac{d\ell_2(s)}{ds}\Bigg|_{s=t} \ell_1(s)\ell_3(s)
++\frac{d\ell_3(s)}{ds}\Bigg|_{s=t} \ell_1(s)\ell_2(s)
+\end{equation}
+where
+\begin{equation}
+\begin{aligned}
+\frac{d\ell_1(s)}{ds}
+&= u_1(P_2(t),t) - u_1(P_1(t),t)\\
+&= u_1\left(x_1(s)+\frac{\ell_1(s)}{2},x_2(s),x_3(s),t\right)
+- u_1\left(x_1(s)-\frac{\ell_1(s)}{2},x_2(s),x_3(s),t\right)\\
+&\approx \frac{\partial u_1}{\partial x_1}\left(x_1,x_2,x_3,t\right)\cdot \ell_1
+\end{aligned}
+\end{equation}
+Similarly 
+\begin{equation}
+\frac{d\ell_i}{ds}\Bigg|_{s=t} = \frac{\partial u_i}{\partial x_i}\left(x_1,x_2,x_3\right)\cdot \ell_{i},\quad \forall i=1,2,3.
+\end{equation}
+Now we write $\displaystyle \frac{d}{ds}\Bigg|_{s=t}=\frac{d}{dt}$​.
+
+\underline{Fig2 = tagged portion and face}
+
+\subsubsection{Continuity equation} % H3 title
+
+Let $\rho(\textbf{x},t)$ be the density of fluid at time $s$.Since $M(s)=\operatorname{const.}$, $\forall s>0$ and $\displaystyle \frac{dM(s)}{ds} = 0$, $\forall s>0$.Therefore, since it is similar to the cube, the density is
+\begin{equation}
+\rho(\textbf{x},s) \approx \frac{M(s)}{V(s)}
+\end{equation}
+and the derevative is 
+\begin{equation}
+\begin{aligned}
+\frac{d}{ds}\rho(\textbf{x},s) \Bigg|_{s=t}
+&\approx \frac{d}{ds}\frac{M(s)}{V(s)} \Bigg|_{s=t}\\
+&= \frac{M'(s)V(s) - M(s)V'(s)}{V^2(s)} \Bigg|_{s=t}\\
+&= \frac{0 - M(s)\frac{d}{ds}V(s)}{V^2(s)} \Bigg|_{s=t}\\
+&=  -\frac{M(s)(\operatorname{div}\textbf{u})V(s)}{V^2(s)} \Bigg|_{s=t}\\
+&=  -\frac{M(s)}{V(s)}(\operatorname{div}\textbf{u}(s)) \Bigg|_{s=t}\\
+&=  -\rho(\textbf{x}(s),s)(\operatorname{div}\textbf{u}(s)) \Bigg|_{s=t}\\
+\end{aligned}
+\end{equation}
+we get 
+\begin{equation}
+- \frac{d}{dt}\rho(\textbf{x}(t),t) = \rho \cdot (\nabla\cdot \textbf{u}(t))
+\end{equation}
+On the other hand, by chain rule
+\begin{equation}
+\frac{d}{dt}\rho(\textbf{x}(t),t) = \rho_t + (\nabla\rho)\cdot \textbf{u}(t)
+\end{equation}
+combining together we have
+\begin{equation}
+\begin{aligned}
+&\Rightarrow \rho_t + (\nabla\rho)\cdot \textbf{u} = \rho \cdot (\nabla\cdot \textbf{u})\\
+&\Rightarrow \rho_t + (\nabla\rho)\cdot \textbf{u} - \rho \cdot (\nabla\cdot \textbf{u}) = 0\\
+&\Rightarrow \rho_t + \nabla\cdot (\rho\textbf{u} ) = 0
+\end{aligned}
+\end{equation}
+and the equation $\rho_t + \nabla\cdot (\rho\textbf{u} ) = 0$ is called the \textit{contunuity equation.}
+
+\subsubsection{Heuristic proof of the Euler equation} % H3 title
+
+In the ansense of an externally applied forces, the net force $\textbf{F}$, acting on $\delta V$, is due to the pressure field.
+
+Write $\textbf{F}=(F_1,F_2,F_3)$, we get
+\begin{equation}
+\begin{aligned}
+\textbf{F}(x_1,x_2,x_3,t)
+&\approx \left(
+P\left(x_1-\frac{\delta x_1}{2},x_2,x_3,t\right)
+- P\left(x_1+\frac{\delta x_1}{2},x_2,x_3,t\right)
+\right)\delta x_2 \delta x_3\\
+&= -\frac{\partial P}{\partial x_1}(\zeta_{1},x_2,x_3, t)\delta x_1 \delta x_2 \delta x_3,\quad \delta x_1, \delta x_2, \delta x_3\to 0\\
+&= \frac{\partial P}{\partial x_1}(\zeta_{1},x_2,x_3, t)\delta V
+\end{aligned}
+\end{equation}
+for some $\zeta_1\in\left(x_1-\frac{\delta x_1}{2}, x_1+\frac{\delta x_1}{2}\right)$.
+
+By Newton's second law, the equation of motion for the elemnet of fund mass $\delta m$, at point $\textbf{x}(t)$ is 
+\begin{equation}
+\frac{d}{dt}\left(\delta m \cdot \textbf{u}(\textbf{x},t)\right) = \textbf{F} = -(\nabla P)\delta V
+\end{equation}
+also
+\begin{equation}
+\frac{d}{dt}\left(\delta m \cdot \textbf{u}(\textbf{x},t)\right) = \delta m \frac{d}{dt}\textbf{u}(\textbf{x},t) = \delta m \left(\textbf{u}_t+(\nabla\cdot \textbf{u})\right)\,\textbf{u}
+\end{equation}
+then
+\begin{equation}
+\begin{aligned}
+\delta m \left(\textbf{u}_t+(\nabla\cdot \textbf{u})\right) \,\textbf{u}
+&=
+-(\nabla P)\delta V\\
+\textbf{u}_t+ (\nabla\cdot \textbf{u})\,\textbf{u} &= -(\nabla P)\frac{\delta V}{\delta m} = -(\nabla P)\frac{1}{\delta m/\delta V}
+\end{aligned}
+\end{equation}
+we get a equation
+\begin{equation}
+\textbf{u}_t+ (\nabla\cdot \textbf{u}) \,\textbf{u} = -\frac{\nabla P}{\rho}
+\end{equation}
+
+
+called \textit{Euler's equation}.
+
+\begin{quote}
+	Notice that
+\begin{equation}
+\left(\nabla\cdot \textbf{u}\right)\,\textbf{u} = \left(\sum_{i=0}^{3}u_i\frac{\partial}{\partial x_i}\right)\textbf{u}
+= \left(u_1\frac{\partial}{\partial x_1}
++u_2\frac{\partial}{\partial x_2}
++u_3\frac{\partial}{\partial x_3}\right)
+\begin{pmatrix}u_1\\ u_2\\ u_3\\
+\end{pmatrix}
+=\begin{pmatrix}
+\left(u_1\frac{\partial}{\partial x_1}
++u_2\frac{\partial}{\partial x_2}
++u_3\frac{\partial}{\partial x_3}\right) u_1\\
+\left(u_1\frac{\partial}{\partial x_1}
++u_2\frac{\partial}{\partial x_2}
++u_3\frac{\partial}{\partial x_3}\right) u_2\\
+\left(u_1\frac{\partial}{\partial x_1}
++u_2\frac{\partial}{\partial x_2}
++u_3\frac{\partial}{\partial x_3}\right) u_3\\
+\end{pmatrix}
+\end{equation}
+
+\end{quote}

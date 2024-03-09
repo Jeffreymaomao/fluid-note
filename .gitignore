@@ -1,0 +1,18 @@
+# directory
+img/
+
+# extension
+*.img
+*.jpg
+*.jepg
+*.heic
+*.sh
+*.log
+*.out
+*.aux
+*.zip
+*.gz
+*.toc
+
+# file
+make.sh

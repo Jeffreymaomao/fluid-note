@@ -1,0 +1,115 @@
+\subsection{The Equation of Motion} % H2 title
+
+\subsubsection{Euler's equation:} % H3 title
+
+Consider a fluid in a domain $D$ in $\mathbb{R}^{n}$  ( $n=2$, $n=3$ ).
+
+Let $x\in D$, and $\rho(\textbf{x},t)$, $\textbf{u}(\textbf{x},t)$, $p(\textbf{x},t)$ be the fluid density, velocity vector field and the pressure at the point $x$ and time $t$.Consider an infinitesimal element of the fluid of volumn $\partial V$ located at point $x$ at time $t$ with mass $\delta m = \rho(\textbf{x},t)$, which is moving $\textbf{u}(\textbf{x},t)$ and momentum $\delta m \cdot \textbf{u}(\textbf{x},t)$
+
+The normal force directed into the indeinetesmal volumn across a face of area $\delta a$ is $\textbf{n}\cdot p(\textbf{x},t)\cdot \delta a$
+
+\underline{Fig1 - box}
+
+Note that the pressure is the magnitade of the torce per unit area or normal stress, imposed on the fluid from neighboring fluid elements.
+
+\subsubsection{Convective derivative 對流} % H3 title
+
+Couvder a fluid particle moving in flaid, whose position $\textbf{x}$ at time $t$ is $\textbf{x}(t)$. Then 
+\begin{equation}
+\frac{d\textbf{x}(t)}{dt} = \dot{\textbf{x}} = \textbf{u}(\textbf{x}(t),t)
+\end{equation}
+Hence, if $f(\textbf{x},t)$ is a function on $D\times (0,T)$, then $f(\textbf{x}(t), t)$ is the value if $f$ at the moving fluid particle at $\textbf{x}(t)$ at time $t$. We define the convective derivative of $f$:
+\begin{equation}
+\begin{aligned}
+\frac{Df(\textbf{x},t)}{Dt} &= \frac{\partial f(\textbf{x},t)}{\partial t} + \dot{\textbf{x}} \cdot \nabla f(\textbf{x},t)\\
+&= f_t + \textbf{u}\cdot \nabla f
+\end{aligned}
+\end{equation}
+
+
+where $\nabla f = f(f_x,f_y,f_z)$ and $\textbf{u}=(u_1,u_2,u_3)$.
+
+Hence, if $f(\textbf{x},t)$ is a function on $D\times(0,T)$, then $f(\textbf{x}(t),t)$ is the vlaue of $f$ at the moving fluid particle at $\textbf{x}(t)$ at time $t$.
+
+We define the convective derivative of $f$ as:
+\begin{equation}
+\begin{aligned}
+\frac{Df(x,t)}{Dt}
+&= \frac{\partial f}{\partial t} + \dot{\textbf{x}}(t)\cdot \nabla f\\
+&= f_t + \textbf{u} \cdot \nabla f
+\end{aligned},
+\end{equation}
+ where $\nabla f = (f_x,f_y,f_z)$ and $\textbf{u} = (u_1,u_2,u_3)$.
+
+\subsubsection{Def.} % H3 title
+
+For any vector filed $\textbf{F} = (F_1,F_2,\ldots,F_n)$ on $D$, we let
+\begin{equation}
+\int_{D} \textbf{F}dV = \left(\int_{D} F_1dV, \int_{D} F_2dV,\ldots,\int_{D} F_ndV\right).
+\end{equation}
+
+
+\subsubsection{Def.} % H3 title
+
+We will assume that $D$ is a smooth domain, i.e. for any $x_0 \in \partial D$, $\mathbb{R}^{n} = (x',x_n), n=2,3$
+
+$\exists \delta_0 > 0$ and a smooth function $\varphi:\mathbb{R}^{n-1}\to\mathbb{R}$, s.t. $\partial D\cap B(x_0,\delta_0)=\left\{(x',\varphi(x')) : \norm{x'}<\delta_0, x'\in\mathbb{R}^{n-1}\right\} \cap B(x_0,\delta_0)$ and $D\cap B({x_0,\delta_0}) = \left\{(x',x_n) : x_n>\varphi(x'), x'\in\mathbb{R}^{n-1}, \norm{x'}<\delta_0\right\} \cap B(x_0,\delta_0)$​
+
+\subsubsection{Claim} % H3 title
+
+Conside the volume $\delta V$ of an element of mass $\delta m$, which moves in the fluid by the fluid motion
+\begin{equation}
+\frac{d(\delta V)}{dt} = (\nabla \cdot \textbf{u}) (\textbf{x},t)\cdot \delta V\quad\text{as}\quad \delta x_1, \delta x_2, \delta x_3 \to 0,
+\end{equation}
+ where $\displaystyle \nabla\cdot\textbf{u} = \operatorname{div}\textbf{u} = \sum_{i=1}^{3}\frac{\partial u_i}{\partial x_i}$, $\textbf{u} = (u_1,u_2,u_3)$.
+
+\subsubsection{proof} % H4 title
+
+
+\begin{equation}
+\begin{aligned}
+\frac{d(\delta V)}{dt}
+&= \frac{d}{dt}(\delta x_1, \delta x_2, \delta x_3)\\
+&= \frac{d(\delta x_1)}{dt} \delta x_2 \delta x_3
++ \frac{d(\delta x_2)}{dt} \delta x_1 \delta x_3
++ \frac{d(\delta x_3)}{dt} \delta x_1 \delta x_2
+\end{aligned}
+\end{equation}
+
+For the first term
+\begin{equation}
+\begin{aligned}
+\frac{d(\delta x_1)}{dt}
+&\approx u_1\left(x_1+\frac{\delta x_1}{2}, x_2, x_3\right)
+- u_1\left(x_1-\frac{\delta x_1}{2}, x_2, x_3\right)\\
+&= \frac{\partial u_1}{\partial x_1}(\xi_1, x_2,x_3) \delta x_1,\quad \text{fot some $\xi_1\in\left(x_1-\frac{\delta x_1}{2},x_1+\frac{\delta x_1}{2}\right)$}
+\end{aligned}
+\end{equation}
+then 
+\begin{equation}
+\frac{d(\delta x_1)}{dt}\delta x_2 \delta x_3 \to
+\frac{\partial u_1}{\partial x_1}(x_1, x_2,x_3) \delta x_1\delta x_2 \delta x_3,
+\quad \text{as $\delta x_1,\delta x_2, \delta x_3 \to 0$}
+\end{equation}
+Similarly 
+\begin{equation}
+\frac{d(\delta x_2)}{dt}\delta x_2 \delta x_3 \to
+\frac{\partial u_2}{\partial x_1}(x_1, x_2,x_3) \delta x_1\delta x_2 \delta x_3,
+\quad \text{as $\delta x_1,\delta x_2, \delta x_3 \to 0$}
+\end{equation}
+and 
+\begin{equation}
+\frac{d(\delta x_3)}{dt}\delta x_2 \delta x_3 \to
+\frac{\partial u_3}{\partial x_1}(x_1, x_2,x_3) \delta x_1\delta x_2 \delta x_3,
+\quad \text{as $\delta x_1,\delta x_2, \delta x_3 \to 0$}
+\end{equation}
+so that 
+\begin{equation}
+\frac{d(\delta V)}{dt} = \left(
+\frac{\partial u_1}{\partial x_1}
++ \frac{\partial u_2}{\partial x_2}
++ \frac{\partial u_3}{\partial x_3}
+\right) \delta x_1\delta x_2 \delta x_3
+= (\nabla \cdot \textbf{u}) \delta V
+\end{equation}
+
