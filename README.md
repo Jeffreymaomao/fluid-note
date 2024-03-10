@@ -27,8 +27,8 @@
 
 ## Class Note
 
-- Note1 - [[download](https://raw.githubusercontent.com/Jeffreymaomao/fluid-note/main/Ch0/main/main.pdf)]
-- Note2 - [[download](https://raw.githubusercontent.com/Jeffreymaomao/fluid-note/main/Ch1/main/main.pdf)]
+- Note1 - [[download](https://raw.githubusercontent.com/Jeffreymaomao/fluid-note/main/Ch0/main/main.pdf)] [[preview](https://github.com/Jeffreymaomao/fluid-note/blob/main/Ch0/main/main.pdf)]
+- Note2 - [[download](https://raw.githubusercontent.com/Jeffreymaomao/fluid-note/main/Ch1/main/main.pdf)] [[preview](https://github.com/Jeffreymaomao/fluid-note/blob/main/Ch1/main/main.pdf)]
 
 
 
