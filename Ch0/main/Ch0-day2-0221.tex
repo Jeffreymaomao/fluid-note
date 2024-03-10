@@ -1,4 +1,10 @@
-Consider a a tagged (marked) portion $\Sigma$ of fluid with center of mass at $(x_1(s), x_2(s), x_3(s))$ at time $s$. Let $m(x)$ and $V(s)$ be the mass and volumn of this portion $\Sigma$ of fluid at time $s$.The portion of fluid particle moves aling with fluid. see as (2/21 fig1)
+\subsubsubsection{Note} % H4 title
+
+\begin{center}\subfile{img/Fig2-portion-change.tex}\end{center}
+
+Consider a a tagged (marked) portion $\Sigma$ of fluid with center of mass at $(x_1(s), x_2(s), x_3(s))$ at time $s$. Let $m(x)$ and $V(s)$ be the mass and volumn of this portion $\Sigma$ of fluid at time $s$​.The portion of fluid particle moves aling with fluid. see as (2/21 fig1)
+
+\begin{center}\subfile{img/Fig3-tagged-portion.tex}\end{center}
 
 For a time $t>0$, suppose at time $t $, the tagged portion $\Sigma$ of fluid particles is a cube centered at $(x_1, x_2, x_3)$ with side lengh $\ell_1,\ell_2,\ell_3$​, see as (2/21 fig2 - textbook p.4),where 
 \begin{equation}
@@ -31,9 +37,7 @@ Similarly
 \begin{equation}
 \frac{d\ell_i}{ds}\Bigg|_{s=t} = \frac{\partial u_i}{\partial x_i}\left(x_1,x_2,x_3\right)\cdot \ell_{i},\quad \forall i=1,2,3.
 \end{equation}
-Now we write $\displaystyle \frac{d}{ds}\Bigg|_{s=t}=\frac{d}{dt}$​.
-
-\underline{Fig2 = tagged portion and face}
+Now we write $\displaystyle \frac{d}{ds}\Bigg|_{s=t}=\frac{d}{dt}$, combinded with equation
 
 \subsubsection{Continuity equation} % H3 title
 
@@ -117,13 +121,15 @@ called \textit{Euler's equation}.
 \begin{quote}
 	Notice that
 \begin{equation}
-\left(\nabla\cdot \textbf{u}\right)\,\textbf{u} = \left(\sum_{i=0}^{3}u_i\frac{\partial}{\partial x_i}\right)\textbf{u}
-= \left(u_1\frac{\partial}{\partial x_1}
+\begin{aligned}
+\left(\nabla\cdot \textbf{u}\right)\,\textbf{u}
+&= \left(\sum_{i=0}^{3}u_i\frac{\partial}{\partial x_i}\right)\textbf{u}\\
+&= \left(u_1\frac{\partial}{\partial x_1}
 +u_2\frac{\partial}{\partial x_2}
 +u_3\frac{\partial}{\partial x_3}\right)
 \begin{pmatrix}u_1\\ u_2\\ u_3\\
-\end{pmatrix}
-=\begin{pmatrix}
+\end{pmatrix}\\
+&=\begin{pmatrix}
 \left(u_1\frac{\partial}{\partial x_1}
 +u_2\frac{\partial}{\partial x_2}
 +u_3\frac{\partial}{\partial x_3}\right) u_1\\
@@ -134,6 +140,7 @@ called \textit{Euler's equation}.
 +u_2\frac{\partial}{\partial x_2}
 +u_3\frac{\partial}{\partial x_3}\right) u_3\\
 \end{pmatrix}
+\end{aligned}
 \end{equation}
 
 \end{quote}

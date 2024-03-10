@@ -1,4 +1,6 @@
-\subsection{The Equation of Motion} % H2 title
+\section{The Equation of Motion} % H1 title
+
+\subsection{Introduction} % H2 title
 
 \subsubsection{Euler's equation:} % H3 title
 
@@ -8,13 +10,12 @@ Let $x\in D$, and $\rho(\textbf{x},t)$, $\textbf{u}(\textbf{x},t)$, $p(\textbf{x
 
 The normal force directed into the indeinetesmal volumn across a face of area $\delta a$ is $\textbf{n}\cdot p(\textbf{x},t)\cdot \delta a$
 
-\underline{Fig1 - box}
+\begin{center}\subfile{img/Fig1-box.tex}\end{center}
 
 Note that the pressure is the magnitade of the torce per unit area or normal stress, imposed on the fluid from neighboring fluid elements.
 
-\subsubsection{Convective derivative 對流} % H3 title
-
-Couvder a fluid particle moving in flaid, whose position $\textbf{x}$ at time $t$ is $\textbf{x}(t)$. Then 
+\subsubsection{Convective derivative} % H3 title
+convective derivative 對流導數 / material derivative 物質導數 / advective derivative 隨流導數 / convective derivative 對流導數 / derivative following the motion 隨體導數 / hydrodynamic derivative 水動力導數 / Lagrange derivative 拉格朗日導數 / substantial derivative 隨質導數Couvder a fluid particle moving in flaid, whose position $\textbf{x}$ at time $t$ is $\textbf{x}(t)$. Then 
 \begin{equation}
 \frac{d\textbf{x}(t)}{dt} = \dot{\textbf{x}} = \textbf{u}(\textbf{x}(t),t)
 \end{equation}
@@ -41,7 +42,7 @@ We define the convective derivative of $f$ as:
 \end{equation}
  where $\nabla f = (f_x,f_y,f_z)$ and $\textbf{u} = (u_1,u_2,u_3)$.
 
-\subsubsection{Def.} % H3 title
+\subsubsubsection{Def.} % H4 title
 
 For any vector filed $\textbf{F} = (F_1,F_2,\ldots,F_n)$ on $D$, we let
 \begin{equation}
@@ -49,13 +50,21 @@ For any vector filed $\textbf{F} = (F_1,F_2,\ldots,F_n)$ on $D$, we let
 \end{equation}
 
 
-\subsubsection{Def.} % H3 title
+\subsubsubsection{Def.} % H4 title
 
 We will assume that $D$ is a smooth domain, i.e. for any $x_0 \in \partial D$, $\mathbb{R}^{n} = (x',x_n), n=2,3$
 
-$\exists \delta_0 > 0$ and a smooth function $\varphi:\mathbb{R}^{n-1}\to\mathbb{R}$, s.t. $\partial D\cap B(x_0,\delta_0)=\left\{(x',\varphi(x')) : \norm{x'}<\delta_0, x'\in\mathbb{R}^{n-1}\right\} \cap B(x_0,\delta_0)$ and $D\cap B({x_0,\delta_0}) = \left\{(x',x_n) : x_n>\varphi(x'), x'\in\mathbb{R}^{n-1}, \norm{x'}<\delta_0\right\} \cap B(x_0,\delta_0)$​
+$\exists \delta_0 > 0$ and a smooth function $\varphi:\mathbb{R}^{n-1}\to\mathbb{R}$, s.t.
+\begin{equation}
+\partial D\cap B(x_0,\delta_0)=\left\{(x',\varphi(x')) : \norm{x'}<\delta_0, x'\in\mathbb{R}^{n-1}\right\} \cap B(x_0,\delta_0)
+\end{equation}
+and
+\begin{equation}
+D\cap B({x_0,\delta_0}) = \left\{(x',x_n) : x_n>\varphi(x'), x'\in\mathbb{R}^{n-1}, \norm{x'}<\delta_0\right\} \cap B(x_0,\delta_0)
+\end{equation}
 
-\subsubsection{Claim} % H3 title
+
+\subsubsubsection{Claim} % H4 title
 
 Conside the volume $\delta V$ of an element of mass $\delta m$, which moves in the fluid by the fluid motion
 \begin{equation}
@@ -63,7 +72,7 @@ Conside the volume $\delta V$ of an element of mass $\delta m$, which moves in t
 \end{equation}
  where $\displaystyle \nabla\cdot\textbf{u} = \operatorname{div}\textbf{u} = \sum_{i=1}^{3}\frac{\partial u_i}{\partial x_i}$, $\textbf{u} = (u_1,u_2,u_3)$.
 
-\subsubsection{proof} % H4 title
+\subsubsubsection{proof} % H4 title
 
 
 \begin{equation}
