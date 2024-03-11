@@ -123,3 +123,73 @@ so that if mass density is a constant (ex: $\rho = 1 $), we have
 \end{equation}
 so that $\operatorname{div}\textbf{u} = 0$, which means the extra term vanishing, and the \textit{transport theorem with mass density} and \textit{transport theorem without mass density} are equivalent.
 \end{quote}
+
+\subsubsection{Def:} % H3 title
+
+And ideal fluid is one in whuch there are no shear stresses.Hence Euler's equation 
+\begin{equation}
+\textbf{u}_t  + (\textbf{u}\cdot \nabla)\textbf{u} = -\frac{\nabla p}{\rho} + \textbf{b}
+\end{equation}
+holds for ideal fluid.
+
+\subsection{Incompressible} % H2 title
+
+We call a flow incompressible if for any subregion $W \subset D $
+\begin{equation}
+\text{volumn}(W_t) = \int_{W_t} dV = \text{constant.}
+\end{equation}
+int time $t$, $W_t = \varphi_t(W)$, where $\varphi_t$ is flow map.
+
+Then a flow is incompressible if and only if
+\begin{equation}
+\begin{aligned}
+0 &= \frac{d}{dt}\int_{W_t} dV_y\\
+&= \frac{d}{dt} \int_{W} J(\textbf{x},t) dV_x\\
+&= \int_{W} \frac{\partial}{\partial t} J(\textbf{x},t) dV_x\\
+&= \int_{W} (\operatorname{div}\textbf{u})J(\textbf{x},t) dV_x\\
+&= \int_{W} (\operatorname{div}\textbf{u})dV_y\\
+\end{aligned}
+\end{equation}
+imply 
+\begin{equation}
+\operatorname{div}\textbf{u} = 0
+\Leftrightarrow
+\frac{\partial J}{\partial t} = (\operatorname{div}\textbf{u}) J = 0
+\end{equation}
+so that $J(\textbf{x},t)$ is a constant, notice that $J(\textbf{x},0) = 0$, we have
+\begin{equation}
+J(\textbf{x},t) = 1,\quad \forall x\in D, t>0
+\end{equation}
+
+
+\begin{quote}
+	Rmk:
+Since
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \operatorname{div}(\rho \textbf{u}) = 0 \Rightarrow \frac{D\rho}{Dt} = \rho_t + \textbf{u}\cdot \nabla \rho = -\rho \operatorname{div}\textbf{u} = 0
+\end{equation}
+so that $D\rho/Dt = 0$. Hence, the mass density is constant following the fluid for incompressible fluid.
+\end{quote}
+
+\subsection{Homogeneous} % H2 title
+
+\subsubsubsection{Def:} % H4 title
+
+A fluid is said to be homogeneous, if $\rho (\textbf{x},t) = \rho(t)$,$\forall x\in D$
+
+\begin{quote}
+	Rmk:
+For incompressible homogeneous fluid,
+\begin{equation}
+\rho(\textbf{x},t) = \rho(t)\quad\text{and}\quad \frac{D\rho}{Dt} = 0
+\end{equation}
+so that
+\begin{equation}
+\begin{aligned}
+0 = \frac{D\rho}{Dt} &= \frac{\partial\rho}{\partial t} + \operatorname{div}(\rho\textbf{u})\\
+&=  \frac{\partial\rho}{\partial t} + \textbf{u}\cdot \nabla \rho + \rho \operatorname{div}\textbf{u}\\
+&=  \frac{\partial\rho}{\partial t} + \textbf{u}\cdot \textbf{0} + \rho \cdot 0 =\rho_t
+\end{aligned}
+\end{equation}
+that is $\rho_t=0$. Then $\rho(t) = \text{constant} = \rho(0)$, $\forall t>0$
+\end{quote}

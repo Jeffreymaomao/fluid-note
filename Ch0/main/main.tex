@@ -75,7 +75,23 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewenvironment{quote}
+    {\begin{center}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline
+    }
+    { 
+    \\\hline
+    \end{tabular} 
+    \end{center}
+    }
+
+
 \begin{document}
+% ================================================================================
 
 \title{Class Notes\\ Introduction to fluid mechanics}
 \author{Chang-Mao Yang, 楊長茂}
@@ -85,12 +101,19 @@
 
 \tableofcontents
 \newpage
-% ================================================================================
-\subfile{./Ch0-day1-0219.tex}
-\subfile{./Ch0-day2-0221.tex}
-\subfile{./Ch0-day3-0226.tex}
-\subfile{./Ch0-day4-0226.tex}
-\subfile{./Ch0-day5-0306.tex}
-\subfile{./Ch0-day6-0307.tex}
+\fancyfoot[R]{\texttt{Ch1-day1-0219}}
+\subfile{Ch1-day1-0219.tex}
+\fancyfoot[R]{\texttt{Ch1-day2-0221}}
+\subfile{Ch1-day2-0221.tex}
+\fancyfoot[R]{\texttt{Ch1-day3-0226}}
+\subfile{Ch1-day3-0226.tex}
+\fancyfoot[R]{\texttt{Ch1-day4-0226}}
+\subfile{Ch1-day4-0226.tex}
+\fancyfoot[R]{\texttt{Ch1-day5-0306}}
+\subfile{Ch1-day5-0306.tex}
+\fancyfoot[R]{\texttt{Ch1-day6-0307}}
+\subfile{Ch1-day6-0307.tex}
+\fancyfoot[R]{\texttt{Ch1-day7-0311}}
+\subfile{Ch1-day7-0311.tex}
 % ================================================================================
 \end{document}

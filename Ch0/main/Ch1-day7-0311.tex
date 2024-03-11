@@ -1,0 +1,56 @@
+\begin{quote}
+	Rmk:
+For any subregion $W\subset D$, Let $W_t=\varphi_t(W)$, where $\varphi_t$ is the flow map.If the fluid is incompressible,
+\begin{equation}
+\frac{d}{dt}\int_{W_t} \rho dV = \int_{W_t}\frac{D\rho}{Dt} dV = 0,
+\end{equation}
+then
+\begin{equation}
+\int_{W_t} \rho(\textbf{x},t) dV_y = \int_{W}\rho(\varphi,t)J(\textbf{x},t)dV_x = \int_{W}\rho(\textbf{x},0) dV_x
+\end{equation}
+Now, we consider
+\begin{equation}
+0 = \frac{1}{\text{Volumn}(W)}\int_{W}\bigg(\rho\left(\varphi(\textbf{x},t),t\right)J(\textbf{x},t) - \rho(\textbf{x},0)\bigg) dV_x,\quad \forall W\subset D
+\label{eq:unit volumn}
+\end{equation}
+Let $W=B(\textbf{x},r)$ and letting $r\to 0$, we have
+\begin{equation}
+\lim_{r\to 0}\frac{1}{\text{Volumn}(B(\textbf{x},r))}\int_{B(\textbf{x},r)}\bigg(\rho\left(\varphi(\textbf{x},t),t\right)J(\textbf{x},t) - \rho(\textbf{x},0)\bigg) dV_x.
+\end{equation}
+Yield that
+\begin{equation}
+\rho\left(\varphi(\textbf{x},t),t\right)J(\textbf{x},t) - \rho(\textbf{x},0) = 0.
+\end{equation}
+Hence
+\begin{equation}
+\rho\left(\varphi(\textbf{x},t),t\right) =  \rho(\textbf{x},0),\quad \forall \textbf{x}\in D, t>0
+\end{equation}
+if the fluid is incompressible.
+\end{quote}
+
+
+
+\begin{quote}
+	Rmk:
+\begin{itemize}
+	\item Incompressible: $\rho\left(\varphi(\textbf{x},t),t\right) =  \rho(\textbf{x},0),\quad \forall \textbf{x}\in D, t>0$
+	\item Homogeneous: $\rho (\textbf{x},t) = \rho(t),\quad\forall x\in D$
+
+\end{itemize}
+
+\end{quote}
+
+\begin{quote}
+	e.g.
+For $\varphi(\textbf{x},t) = \varphi\left((x_1,x_2,x_3),t\right) = ((1+t)x_1,x_2,x_3)$, so the Jocobian
+\begin{equation}
+J(\textbf{x},t) = \begin{vmatrix}
+1+t & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1\\
+\end{vmatrix} = 1+t
+\end{equation}
+We can choose $\displaystyle \rho(\textbf{x},t) = \frac{1}{1+t}$, then the fluid is compressible but homogeneous.
+\end{quote}
+
+
