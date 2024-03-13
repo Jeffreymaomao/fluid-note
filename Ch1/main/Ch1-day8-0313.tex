@@ -1,0 +1,160 @@
+Now, we first calculate
+\begin{equation}
+\begin{aligned}
+\operatorname{div}\left((\textbf{u}\cdot \nabla)\, \textbf{u}\right)
+&= \sum_{i} \frac{\partial}{\partial x_i}\left(\textbf{u}\cdot \nabla\right) u_i\\
+&= \sum_{i} \frac{\partial}{\partial x_i}\left(\sum_{j}u_j\frac{\partial}{\partial x_j}\right) u_i\\
+&= \sum_{i}\sum_{j}\frac{\partial}{\partial x_i}\left(\left(u_j\frac{\partial}{\partial x_j}\right) u_i\right)\\
+&= \sum_{i}\sum_{j}
+\left(\frac{\partial}{\partial x_i}\left(u_j\frac{\partial}{\partial x_j}\right)\right) u_i
++\left(u_j\frac{\partial}{\partial x_j}\right)\left(\frac{\partial}{\partial x_i} u_i\right)\\
+&= \sum_{i}\sum_{j}
+\left(\left(\frac{\partial u_j}{\partial x_i}\right)\left(\frac{\partial}{\partial x_j}\right)\right) u_i
++\left(u_j\frac{\partial}{\partial x_i}\frac{\partial}{\partial x_j}\right) u_i
++\left(u_j\frac{\partial}{\partial x_j}\right)\left(\frac{\partial}{\partial x_i} u_i\right)\\
+&= \sum_{i}\sum_{j}
+\left(\frac{\partial u_j}{\partial x_i}\right)\left(\frac{\partial u_i}{\partial x_j}\right)
++2\left(u_j\frac{\partial}{\partial x_j}\right)\left(\frac{\partial u_i}{\partial x_i}\right)\\
+&= \sum_{i}\sum_{j}
+\left(\frac{\partial u_j}{\partial x_i}\right)\left(\frac{\partial u_i}{\partial x_j}\right)
++2\sum_{i}\sum_{j}\left(u_j\frac{\partial}{\partial x_j}\right)\left(\frac{\partial u_i}{\partial x_i}\right)\\
+&= \sum_{i}\sum_{j}
+\left(\frac{\partial u_j}{\partial x_i}\right)\left(\frac{\partial u_i}{\partial x_j}\right)
++2\sum_{j} \left(u_j\frac{\partial}{\partial x_j}\right)\operatorname{div}\textbf{u}\\
+&= \sum_{i}\sum_{j}
+\left(\frac{\partial u_j}{\partial x_i}\right)\left(\frac{\partial u_i}{\partial x_j}\right)
++2\left(\textbf{u}\cdot \nabla\right)\operatorname{div}\textbf{u}\\
+\end{aligned}
+\end{equation}
+
+
+notice $\operatorname{div}\textbf{u} = 0$, we then have
+\begin{equation}
+\operatorname{div}\left((\textbf{u}\cdot \nabla)\, \textbf{u}\right) + \frac{\nabla p}{\rho}
+= \sum_{i,j}\left(\frac{\partial u_j}{\partial x_i}\right)\left(\frac{\partial u_i}{\partial x_j}\right) + \frac{\nabla p}{\rho} = 0
+\end{equation}
+So the Euler's equation becomes
+\begin{equation}
+\nabla p = -\rho\sum_{i,j}\left(\frac{\partial u_j}{\partial x_i}\right)\left(\frac{\partial u_i}{\partial x_j}\right).
+\end{equation}
+Since the fluid is confined in fixed region of space by $D$, therefore the fluid cannot move into $\mathbb{R}^3\setminus D$ (out side), so the normal component of the fluid satisfied 
+\begin{equation}
+\textbf{u}\cdot\textbf{n}\Bigg|_{\partial D} = 0
+\quad\Rightarrow\quad
+\frac{\partial \textbf{u}}{\partial t}\cdot \textbf{n}\Bigg|_{\partial D} = 0,
+\end{equation}
+then by Euler's equation, we have
+\begin{equation}
+\frac{\partial p}{\partial \textbf{n}}\Bigg|_{\partial D} = \nabla p \cdot \textbf{n} = -\rho (\textbf{u}\cdot\nabla)\textbf{u}\cdot \textbf{n}\Bigg|_{\partial D}.
+\end{equation}
+For the flat boundary surfaces, e.g. the wall of flixed rectangular box, $\textbf{n} = (n_1,n_2,n_3)$ and 
+\begin{equation}
+\begin{aligned}
+\textbf{n}\cdot \left(\left(\textbf{u}\cdot \nabla\right)\textbf{u}\right)
+&= \sum_{i,j} n_i \left(u_i\frac{\partial}{\partial x_j} u_i\right)\\
+&= \sum_{i,j} u_j \frac{\partial}{\partial x_j}(u_in_i)\\
+&= \sum_{j} u_j \frac{\partial}{\partial x_j}(\textbf{u}\cdot\textbf{n}) = 0,\quad \text{Since $\textbf{u}\cdot\textbf{n}\Bigg|_{\partial D} = 0$}
+\end{aligned}
+\end{equation}
+on each flat surface. Since 
+\begin{equation}
+\frac{\partial p}{\partial n}\Bigg|_{\partial D} = 0
+\end{equation}
+on each flat surface. Then one can solve 
+\begin{equation}
+\begin{cases}
+\displaystyle \nabla p = - \rho \sum_{i,j}\frac{\partial u_j}{\partial x_i}\frac{\partial u_i}{\partial x_j},\\
+\displaystyle  \frac{\partial p}{\partial \textbf{n}}\Bigg|_{\partial D} = 0,\quad \text{(If the surface is flat.)}
+\end{cases}
+\end{equation}
+using standard PDE method.
+
+\begin{quote}
+	Rmk:
+If the surface are not flat, the equations become
+\begin{equation}
+\begin{cases}
+\displaystyle \nabla p
+= - \rho \sum_{i,j}\frac{\partial u_j}{\partial x_i}\frac{\partial u_i}{\partial x_j},\\
+\displaystyle \frac{\partial p}{\partial \textbf{n}}\Bigg|_{\partial D}
+= - \left(\textbf{u}\cdot\nabla\right)\textbf{u}\cdot \textbf{n}\Bigg|_{\partial D}
+\end{cases}
+\end{equation}
+
+\end{quote}
+
+
+\subsection{Consevation of Energy} % H2 title
+
+For fluid moving in a domain $D$ with velocity $\textbf{u}$, the kinetic energy of the fluid in $W$ is 
+\begin{equation}
+E_{\rm kinetic} = \frac{1}{2}\int_{W}\rho \cdot \lVert\textbf{u}\rVert^2 dV,
+\end{equation}
+where $\textbf{u} = (u_1,u_2,u_3)$ and $\lVert\textbf{u}\rVert^2 = \sqrt{u_1^2+u_2^2+u_3^2}$.
+
+
+
+
+
+\begin{quote}
+	Rmk:
+When $W = D$ and the fluid is incompressible with no external force acting on fluid, we have
+\begin{equation}
+\begin{aligned}
+\frac{d}{dt}E_{\rm kinetic}
+&= \frac{1}{2}\frac{d}{dt}\int_{W}\rho \cdot \lVert\textbf{u}\rVert^2 dV\\
+&= \frac{1}{2}\int_{D}\frac{\partial}{\partial t}\left(\rho \lVert\textbf{u}\rVert^2\right)dV\\
+&= \frac{1}{2}\int_{D}\rho_t \lVert\textbf{u}\rVert^2 + \rho \frac{\partial}{\partial t} \lVert\textbf{u}\rVert^2 dV\\
+&= \frac{1}{2}\int_{D} \bigg(
+-\operatorname{div}(\rho\textbf{u})\lVert\textbf{u}\rVert^2
++2\rho \textbf{u}\cdot \textbf{u}_t
+\bigg)dV\\
+&= \frac{1}{2}\int_{D} \bigg(
+-\operatorname{div}\left(\rho\textbf{u}\lVert\textbf{u}\rVert^2\right)
++(\rho\textbf{u})\nabla\lVert\textbf{u}\rVert^2
++2\rho \textbf{u}\cdot \textbf{u}_t
+\bigg)dV
+\end{aligned}
+\end{equation}
+also notice that the euler equation $\textbf{u}_t+(\textbf{u}\cdot \nabla)\textbf{u}+\nabla p/\rho=0$ , pluin
+\begin{equation}
+\begin{aligned}
+\frac{d}{dt}E_{\rm kinetic}
+&= \frac{1}{2}\int_{D} \bigg(
+-\operatorname{div}\left(\rho\textbf{u}\lVert\textbf{u}\rVert^2\right)
++(\rho\textbf{u})\cdot\nabla\lVert\textbf{u}\rVert^2
++2\rho \textbf{u}\cdot \textbf{u}_t
+\bigg)dV\\
+&= \frac{1}{2}\int_{D} \bigg(
+-\operatorname{div}\left(\rho\textbf{u}\lVert\textbf{u}\rVert^2\right)
++(\rho\textbf{u})\cdot 2\left((\textbf{u}\cdot \nabla) \textbf{u}\right)
++2\rho \textbf{u}\cdot\left(-(\textbf{u}\cdot \nabla)\textbf{u}-\frac{\nabla p}{\rho}\right)
+\bigg)dV\\
+&= \frac{1}{2}\int_{D} \bigg(
+-\operatorname{div}\left(\rho\textbf{u}\lVert\textbf{u}\rVert^2\right)
++2\rho\textbf{u}\cdot(\textbf{u}\cdot \nabla) \textbf{u}
+-2\rho \textbf{u}\cdot(\textbf{u}\cdot \nabla)\textbf{u}
+-2\rho \textbf{u}\cdot\frac{\nabla p}{\rho}
+\bigg)dV\\
+&= \frac{1}{2}\int_{D} \bigg(
+-\operatorname{div}\left(\rho\textbf{u}\lVert\textbf{u}\rVert^2\right)
+-2\rho \textbf{u}\cdot\frac{\nabla p}{\rho}
+\bigg)dV\\
+&= -\frac{1}{2}\int_{D}
+\operatorname{div}\left(\rho\textbf{u}\lVert\textbf{u}\rVert^2\right)dV
+-\int_{D}\left(\textbf{u}\cdot\nabla p\right)dV\\
+&= -\frac{1}{2}\int_{\partial D}
+\rho\lVert\textbf{u}\rVert^2\textbf{u}\cdot\textbf{n}d\sigma
+-\int_{D}\left(\textbf{u}\cdot\nabla p\right)dV\\
+\end{aligned}
+\end{equation}
+Since, $\textbf{u}\cdot\textbf{n} = 0$,
+\end{quote}
+
+
+
+\begin{quote}
+	Rmk:
+When $E_{\rm kinetic}$
+\end{quote}
+
