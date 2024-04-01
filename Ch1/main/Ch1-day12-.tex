@@ -1,0 +1,94 @@
+\underline{Fig}
+
+For the flow
+\begin{equation}
+\textbf{u}(x,y,t) = \left(u_1(x,t),0,0\right)
+\end{equation}
+and the equation
+\begin{equation}
+\textbf{u}_t + (\textbf{u}\cdot \nabla)\textbf{u} = -\frac{\nabla p}{\rho}
+\end{equation}
+becomes
+\begin{equation}
+u_{1,t} + u_1\frac{\partial u_1}{\partial x} = -\frac{p_x}{\rho_{0}}
+\quad\Rightarrow\quad
+u_{1,t} + u_1u_{1,x} = -\frac{p_x}{\rho_{0}}
+\end{equation}
+with the incompressibility $\operatorname{div}\textbf{u} = u_{1,x} = 0$, we have 
+\begin{equation}
+u_{1,t} = -\frac{p_x}{\rho_{0}}
+\quad\Rightarrow\quad
+p_x = -\rho_{0} u_{1,t}
+\end{equation}
+Notice that
+\begin{equation}
+p_{xx} = -\rho_{0} u_{1,t,x} = -\rho_{0} \frac{\partial}{\partial t} u_{1,x} = 0
+\end{equation}
+so that the pressure $p$ is given by
+\begin{equation}
+p_{x,x} = 0
+\quad\Rightarrow\quad
+p_{x} = C_1
+\quad\Rightarrow\quad
+p(x) = C_1 x + C_2,
+\end{equation}
+where $C_1,C_2$ is constant.
+
+Plugin the boundary condition
+\begin{equation}
+\begin{cases}
+p(x=0) = p(0) = p_1 = C_2\\
+p(x=L) = p(L) = p_2 = C_1L+p_1
+\end{cases},\quad\Rightarrow\quad
+C_2 = \frac{p_2-p_1}{L}
+\end{equation}
+solving that the pressure
+\begin{equation}
+p(x) = p_1 + \left(p_2-p_1\right)\frac{x}{L}
+\end{equation}
+or
+\begin{equation}
+p(x) = \frac{(1-x)p_1 + xp_2}{L}.
+\end{equation}
+Notice that $p_x = (p_2-p_1)/L$, we can solve that 
+\begin{equation}
+u_{1,t} = \frac{p_2-p_1}{L\rho}
+\quad\Rightarrow\quad
+u_{1}(t) = \frac{p_2-p_1}{L\rho} t + C_3,
+\end{equation}
+for some constant $C_3$.
+
+\begin{quote}
+	Rmk:
+We can observe that, when $t\to\infty$
+\begin{equation}
+\lim_{t\to\infty} u_{1}(t) = \infty
+\end{equation}
+which is impossible in real flow. Thus the Euler equation is not a good model for this flow.
+\end{quote}
+
+This is because we have ignored frictional force in the modelling. This situation will be remedied by the "\textit{Navier-Stokes equation}", which take account for friction force later.
+
+\subsection{Rotation and Vorticity} % H2 title
+
+\begin{quote}
+	\textbf{Definition}
+If the velocity filed of a fluid is $\textbf{u}=(u_1,u_2,u_3)$. We define the vorticity of the fluid
+\begin{equation}
+\zeta = \nabla \times \textbf{u}
+= \begin{vmatrix}
+\textbf{e}_1 & \textbf{e}_2 & \textbf{e}_1\\
+\partial_{1} & \partial_{2} & \partial_{3}\\
+u_1 & u_2 & u_3
+\end{vmatrix}
+\end{equation}
+
+\end{quote}
+\begin{quote}
+	\textbf{Proposition}
+Suppose the fluid is in the region $D$ and $x\in D$. Let $y = x + h$ be a nearby point, then
+\begin{equation}
+\textbf{u}(y,t) = \textbf{u}(x,t) + D(x,t)
+\end{equation}
+
+\end{quote}

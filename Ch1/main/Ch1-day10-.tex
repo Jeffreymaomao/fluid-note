@@ -1,0 +1,168 @@
+Last, time we solving that
+\begin{equation}
+\frac{\partial E}{\partial t} = -\int_{W_t} p\textbf{u}\cdot\textbf{n}d\sigma
++ \int_{W_t}\rho\textbf{u}\cdot\textbf{b}dV
++ \int_{W_t} (\operatorname{div}\textbf{u})pdV
++ \int_{W_t} \rho\frac{D\epsilon}{Dt}dV
+\end{equation}
+where $\displaystyle \frac{D\epsilon}{Dt}  = -\frac{p(\rho)}{\rho}\left(\operatorname{div}\textbf{u}\right)$, and pressure a the function of $\rho$, i.e.  $p=p(\rho)$. Plugin we have
+\begin{equation}
+\begin{aligned}
+\frac{\partial E}{\partial t}
+&= -\int_{W_t} p\textbf{u}\cdot\textbf{n}d\sigma
++ \int_{W_t}\rho\textbf{u}\cdot\textbf{b}dV
++ \int_{W_t} (\operatorname{div}\textbf{u})pdV
++ \int_{W_t} \rho\frac{D\epsilon}{Dt}dV\\
+&= -\int_{W_t} p\textbf{u}\cdot\textbf{n}d\sigma
++ \int_{W_t}\rho\textbf{u}\cdot\textbf{b}dV
++ \int_{W_t} (\operatorname{div}\textbf{u})pdV
+- \int_{W_t} \rho \frac{p}{\rho}\left(\operatorname{div}\textbf{u}\right)dV\\
+&= -\int_{W_t} p\textbf{u}\cdot\textbf{n}d\sigma
++ \int_{W_t}\rho\textbf{u}\cdot\textbf{b}dV
++ \int_{W_t} (\operatorname{div}\textbf{u})p
+-  \left(\operatorname{div}\textbf{u}\right)pdV\\
+&= -\int_{W_t} p\textbf{u}\cdot\textbf{n}d\sigma + \int_{W_t}\rho\textbf{u}\cdot\textbf{b}dV,\quad\text{(BE)}
+\end{aligned}
+\end{equation}
+
+
+Thus the rate of change of energy $\displaystyle E=\int_{W_t}\left(\frac{1}{2}\lVert\textbf{u}\rVert^2 + \rho\epsilon\right)dV$  is equal to the rate which work is done on it.
+
+Euler equation for isentropic flow are
+\begin{equation}
+\begin{cases}
+\displaystyle \frac{\partial \textbf{u}}{\partial t} + \left(\textbf{u}\cdot \nabla\right)\textbf{u} =-\nabla w+b\\
+\displaystyle \frac{\partial \rho}{\partial t} + \operatorname{div}(\rho \textbf{u})=0
+\end{cases},\quad\text{in $D$ and $\textbf{u}\cdot\textbf{n}\bigg|_{\partial D} = 0$}
+\end{equation}
+
+
+\begin{quote}
+	Rmk: Gases can often be viewed a sisentropic with $p=c_0\rho^\gamma$, where $c_0$ and $\gamma$ are constant, then
+\begin{equation}
+w = \int_{0}^{\rho} \frac{c_0\gamma s^{\gamma-1}}{s}ds = \frac{c_0\gamma\rho^{\gamma-1}}{\gamma-1}
+\end{equation}
+and
+\begin{equation}
+\epsilon = w-\frac{p}{\rho} = \frac{c_0\gamma \rho^{\gamma-1}}{\gamma-1} - c_0\rho^{\gamma-1} = c_0\rho^{\gamma-1}\left(\frac{\gamma}{\gamma-1}-1\right) = c_0\rho^{\gamma-1}\frac{1}{\gamma-1}.
+\end{equation}
+
+\end{quote}
+\vspace{5pt}
+\hrule
+\vspace{6pt}
+
+\begin{quote}
+	\textbf{Definition}
+GIven a fluid flow with velocity field $\textbf{u}(\textbf{x},t)$, a streamline, at fixed time $t$ is an integral. curve of $\textbf{u}$ that satistice the equation
+\begin{equation}
+\frac{d\textbf{x}(s)}{ds} = \textbf{u}(\textbf{x}(s),t),\quad\forall s>0.
+\end{equation}
+
+\end{quote}
+\begin{quote}
+	\textbf{Definition}
+We define a trajectory to a curve trace out by a particle as time progresses. More precisely, a trajectory is a solution of the equation.
+\begin{equation}
+\frac{d\textbf{x}(t)}{dt} = \textbf{u}(\textbf{x}(t),t),\quad\forall t>0.
+\end{equation}
+
+\end{quote}
+\begin{quote}
+	\textbf{Rmk:}
+If $\textbf{u}$ is independent of time, i.e. $\partial_t \textbf{u} = 0$, streenline and trajectory coincide. That is the solution of
+\begin{equation}
+\frac{d\textbf{x}(s)}{ds} = \textbf{u}(\textbf{x}(s),t)
+\quad\text{and}\quad
+\frac{d\textbf{x}(t)}{dt} = \textbf{u}(\textbf{x}(t),t)
+\end{equation}
+are the same.
+\end{quote}
+
+\begin{quote}
+	\textbf{Lemma:}
+\begin{equation}
+\frac{1}{2}\nabla \textbf{u}^2 = \left(\textbf{u}\cdot \nabla\right)\textbf{u} + \textbf{u}\times\left(\nabla\times\textbf{u}\right)
+\end{equation}
+where $\textbf{u} = (u_1,u_2,u_3)$.
+\end{quote}
+
+proof:
+
+By use of the Levi-Civita symbols:
+\begin{equation}
+\varepsilon_{i,j,k} =
+\begin{cases}
+1 & \text{if $(i,j,k)$ is cyclic permutation,}\\
+-1 & \text{if $(i,j,k)$ is anti-cyclic permutation,}\\
+0 & \text{others,}
+\end{cases}
+\end{equation}
+and Kronecker delta:
+\begin{equation}
+\delta_{i,j} = \begin{cases}
+1 & \text{if $i=j$}\\
+-1 & \text{if $i\neq j$}\\
+\end{cases}
+\end{equation}
+
+
+
+we first calculate 
+\begin{equation}
+\begin{aligned}
+\left(\textbf{u}\cdot \nabla\right)\textbf{u}
+&= \sum_{i=1}^{3}\left(\textbf{u}\cdot \nabla\right)u_i\hat{e}_i\\
+&= \sum_{i,j=1}^{3}u_j\partial_ju_i\hat{e}_i\\
+\end{aligned}
+\end{equation}
+Then using the properties of Levi-Civita symbols $\varepsilon_{i,j,k}\varepsilon_{\ell,m,k} = \delta_{i\ell}\delta_{jm}-\delta_{im}\delta_{j\ell}$
+\begin{equation}
+\begin{aligned}
+\textbf{u}\times\left(\nabla\times\textbf{u}\right)
+&= \sum_{i,j,k=1}^{3}
+\varepsilon_{i,j,k} u_i\left(\nabla\times\textbf{u}\right)_j\hat{e}_k\\
+&= \sum_{i,j,k,\ell,m=1}^{3}
+\varepsilon_{i,j,k} u_i\left(\varepsilon_{\ell,m,j} \partial_{\ell}u_m\right)\hat{e}_k\\
+&= \sum_{i,j,k,\ell,m=1}^{3}
+\varepsilon_{i,j,k}\varepsilon_{\ell,m,j}\, u_i\partial_{\ell}u_m \,\hat{e}_k\\
+&= -\sum_{i,j,k,\ell,m=1}^{3}
+\varepsilon_{i,k,j}\varepsilon_{\ell,m,j}\, u_i\partial_{\ell}u_m \,\hat{e}_k\\
+&= -\sum_{i,k,\ell,m=1}^{3}
+\left(\delta_{i\ell}\delta_{km} - \delta_{im}\delta_{k\ell}\right)\, u_i\partial_{\ell}u_m \,\hat{e}_k\\
+&= -\sum_{i,k,\ell,m=1}^{3}
+\left(\delta_{i\ell}\delta_{km}u_i\partial_{\ell}u_m \,\hat{e}_k - \delta_{im}\delta_{k\ell}u_i\partial_{\ell}u_m \,\hat{e}_k\right)\\
+&= -\left(
+\sum_{i,k,\ell,m=1}^{3}\delta_{i\ell}\delta_{km}\,u_i\partial_{\ell}u_m \,\hat{e}_k
+-
+\sum_{i,k,\ell,m=1}^{3}\delta_{im}\delta_{k\ell}\,u_i\partial_{\ell}u_m \,\hat{e}_k
+\right)\\
+&= -\left(
+\sum_{i,k=1}^{3}\,u_i\partial_{i}u_k \,\hat{e}_k
+-
+\sum_{i,k=1}^{3}\,u_i\partial_{k}u_i \,\hat{e}_k
+\right)\\
+&= \sum_{i,k=1}^{3}\,u_i\partial_{k}u_i \,\hat{e}_k -\sum_{i,k=1}^{3}\,u_i\partial_{i}u_k \,\hat{e}_k \\
+&= \sum_{i,j=1}^{3}\,u_i\partial_{j}u_i \,\hat{e}_j -\sum_{i,j=1}^{3}\,u_i\partial_{i}u_j \,\hat{e}_j \\
+\end{aligned}
+\end{equation}
+
+
+So that we have 
+\begin{equation}
+\begin{aligned}
+\left(\textbf{u}\cdot \nabla\right)\textbf{u} + \textbf{u}\times\left(\nabla\times\textbf{u}\right)
+&= \sum_{i,j=1}^{3}u_j\partial_ju_i\hat{e}_i
++ \left(\sum_{i,j=1}^{3}\,u_i\partial_{j}u_i \,\hat{e}_j
+- \sum_{i,j=1}^{3}\,u_i\partial_{i}u_j \,\hat{e}_j\right)\\
+&= \sum_{i,j=1}^{3}u_i\partial_iu_j\hat{e}_j
++ \left( - \sum_{i,j=1}^{3}\,u_i\partial_{i}u_j \,\hat{e}_j+\sum_{i,j=1}^{3}\,u_i\partial_{j}u_i \,\hat{e}_j\right)\\
+&= \sum_{i,j=1}^{3}\,u_i\partial_{j}u_i \,\hat{e}_j\\
+&= \frac{1}{2}\sum_{i,j=1}^{3}\partial_{j}u_i^2 \,\hat{e}_j\\
+&= \frac{1}{2}\sum_{j=1}^{3}\partial_{j}\hat{e}_j\left(\sum_{i=1}^{3}u_i^2\right)\\
+&= \frac{1}{2}\sum_{j=1}^{3}\partial_{j}\hat{e}_j\lVert\textbf{u}\rVert\\
+&= \frac{1}{2}\nabla\lVert\textbf{u}\rVert\\
+\end{aligned}
+\end{equation}
+
+

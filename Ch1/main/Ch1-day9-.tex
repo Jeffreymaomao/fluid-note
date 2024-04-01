@@ -1,0 +1,162 @@
+
+\begin{equation}
+\begin{aligned}
+\frac{\partial}{\partial t}E_{\rm kinetic}
+&= \cdots\\
+&= \int_{W_t}\rho \textbf{u}\cdot\left(\textbf{u}_t+(\textbf{u}\cdot \nabla)\cdot \textbf{u}\right)dV\\
+&= \int_{W_t}\rho \textbf{u} \cdot \left(-\frac{\nabla p}{\rho} + \textbf{b}\right)dV,\quad\text{By BM1}\\
+&= -\int_{W_t} \left(\textbf{u}\cdot \nabla \cdot p - \rho \textbf{u}\cdot \textbf{b}\right)dV,\label{eq: Et1}
+\end{aligned}
+\end{equation}
+
+On the other hand, if we alsp assume that all energy is kinetic, then the rate of change of kinetic energy of fluid os equalto the rate of work done on the fluid in $W_t$ by the pressure and the body force, i.e.
+\begin{equation}
+\begin{aligned}
+\frac{\partial}{\partial t}E_{\rm kinetic}(W_t)
+&= \int_{\partial W_t} p\textbf{u}\cdot \textbf{n}d\sigma + \int_{W_t} \rho \textbf{u}\cdot\textbf{b}dV\\
+&= -\int_{W_t} \operatorname{div}(\rho \textbf{u})dV + \int_{W_t} \rho \textbf{u}\cdot \textbf{b}dV\\
+&= -\int_{W_t} \left(\textbf{u}\cdot \nabla p +p\,(\operatorname{div}\textbf{u})\right) + \int_{W_t} \rho \textbf{u}\cdot \textbf{b}dV\\
+&= -\int_{W_t} \left(\textbf{u}\cdot \nabla p - \rho \textbf{u}\cdot \textbf{b}\right)
++ \int_{W_t} p\,(\operatorname{div}\textbf{u})dV,\label{eq: Et2}
+\end{aligned}
+\end{equation}
+then by equations $(\ref{eq: Et1})$ and $(\ref{eq: Et2})$, we have
+\begin{equation}
+\int_{W_t} p\,(\operatorname{div}\textbf{u})dV,\quad \forall W\subset D.
+\end{equation}
+
+
+Let $W=\varphi_t^{-1}\left(B(x_0,r)\right)$, where $B(x_0,r)\subset D$, then $B(x_0,r) = \varphi_t(W)=W_t$, we get 
+\begin{equation}
+\frac{1}{B(x_0,r)}\int_{B(x_0,r)} p\,\operatorname{div}\textbf{u}\,dV=0,\quad \forall x_0\in D,r>0,B(x_0,r)\subset D.
+\end{equation}
+Letting $r\to 0$, $p\operatorname{div}\textbf{u} = 0$ in $D$, we get $\operatorname{div}\textbf{u}$ if $p\neq 0$ in $D$. So that the fluid must be incrompressible.
+
+
+
+\paragraph{Summary} % H5 title
+
+In summary, the Euler equation are 
+\begin{equation}
+\begin{cases}
+\displaystyle \rho \frac{D\textbf{u}}{Dt} &= -\nabla p + \rho \textbf{b}\\
+\displaystyle \frac{D\rho}{Dt} = 0\\
+\operatorname{div}\textbf{u} = 0
+\end{cases},\quad \text{in $D$},
+\end{equation}
+where $\textbf{u}\cdot \textbf{n}\bigg|_{\partial D} = 0$
+
+\subsection{Isentropic fluid} % H2 title
+
+A flow is said to be isentropic, if there exists function $W$ (called enthalpy), s.t.
+\begin{equation}
+\nabla W = \frac{\nabla p}{\rho}.
+\end{equation}
+Recall that in theremodynamics, one has the following basic quantitties which are the function of $\textbf{x}$ and $t$:
+
+\begin{itemize}
+	\item $p$ : pressure
+	\item $\rho$ : density
+	\item $T$ : temperature
+	\item $s$ : entropy
+	\item $w$ : enthalpy (per unit mass)
+	\item $\epsilon = W - p/\rho$ : inertial energy (per unit mass)
+
+\end{itemize}
+ These quantities are related by the first law of Thermodynamics, which we accept as a basic principle:
+
+\begin{enumerate}
+	\item \textbf{TD1} :
+
+\begin{equation}
+dw = Tds + \frac{dp}{\rho}
+\end{equation}
+
+\end{enumerate}
+\begin{enumerate}
+	\item \textbf{TD2} :
+
+\begin{equation}
+d\epsilon = dw - \frac{dp}{\rho} + \frac{p}{\rho^2}d\rho = Tds + \frac{p}{\rho^2}d\rho
+\end{equation}
+
+\end{enumerate}
+
+If the pressure $p$ is a function of $\rho$ only, and $s$ is constant, then
+\begin{equation}
+dw = Tds + \frac{dp}{\rho} =\frac{dp/d\rho}{\rho}d\rho
+\quad \Rightarrow\quad
+w = \int^{\rho} \frac{p'(\bar{\rho})}{\bar{\rho}}d\bar{\rho}.
+\end{equation}
+Then the divergence
+\begin{equation}
+\nabla w
+= \sum_{i=1}^{3}\left(\frac{\partial W}{\partial \rho}\frac{\partial \rho}{\partial x_i}\right)
+= \sum_{i=1}^{3}\left(\frac{p'(\rho)}{\rho}\frac{\partial \rho}{\partial x_i}\right) = \frac{\nabla p}{\rho}
+\end{equation}
+and hence, the fluid is isentropic.
+
+In this case, the eternal energy $\displaystyle \epsilon = w-\frac{p}{\rho}$​ satisfies
+\begin{equation}
+\begin{aligned}
+d\epsilon
+&= dw - \frac{dp}{\rho} + \frac{p}{\rho^2} d\rho\\
+&= \frac{p'(\rho)}{\rho} d\rho - \frac{dp}{\rho} + \frac{p}{\rho^2} d\rho\\
+&= \frac{p}{\rho^2} d\rho,
+\end{aligned}
+\end{equation}
+Then
+\begin{equation}
+\frac{\partial \epsilon}{\partial \rho} = \frac{p}{\rho^2}\quad\Rightarrow\quad \epsilon = \int^{\rho}_{\rho_0}\frac{p}{\bar{\rho}\,^2}d\bar{\rho}.
+\end{equation}
+
+
+\begin{quote}
+	Note that, by the transport thm. if $\displaystyle E=\int_{W_t}\left(\frac{1}{2}\lVert\textbf{u}\rVert^2 + \rho\epsilon\right)dV$, then
+\begin{equation}
+\begin{aligned}
+\frac{\partial E}{\partial t}
+&=\frac{d}{dt}\int_{W_t}\left(\frac{1}{2}\rho\lVert\textbf{u}\rVert^2 + \rho\epsilon\right)dV \\
+&=\int_{W_t}\left(\frac{\rho}{2}\frac{D}{Dt}\lVert\textbf{u}\rVert^2+\rho\frac{D\epsilon}{Dt}\right)dV\\
+&= \int_{W_t}\rho\textbf{u}\cdot \left(\textbf{u}_t + (\textbf{u}\cdot\nabla)\,\textbf{u}\right) dV
++ \int_{W_t} \rho \frac{D\epsilon}{Dt} dV\\
+&= \int_{W_t}\rho\textbf{u}\cdot \left(-\frac{\nabla p}{\rho} + \textbf{b}\right) dV
++ \int_{W_t} \rho \frac{D\epsilon}{Dt} dV\\
+&= \int_{W_t} \big(-\operatorname{div}(p\textbf{u}) + p\textbf{u}\cdot\textbf{b}\big)dV
++ \int_{W_t} (\operatorname{div}\textbf{u})pdV
++ \int_{W_t} \rho\frac{D\epsilon}{Dt}dV\\
+&= -\int_{W_t} p\textbf{u}\cdot\textbf{n}d\sigma
++ \int_{W_t}\rho\textbf{u}\cdot\textbf{b}dV
++ \int_{W_t} (\operatorname{div}\textbf{u})pdV
++ \int_{W_t} \rho\frac{D\epsilon}{Dt}dV\\
+\end{aligned}
+\end{equation}
+
+\end{quote}
+
+\begin{quote}
+	Rmk: For isentropic flow with $p$, a function of $\rho$, where
+\begin{equation}
+\epsilon = \int^{\rho} \frac{p(\bar{\rho})}{\bar{\rho}}d\rho,
+\end{equation}
+and then
+\begin{equation}
+\epsilon_t = \frac{p(\rho)}{\rho^2}\rho_t,\quad\text{and}\nabla \epsilon = \frac{p(\rho)}{\rho^2}\nabla \rho
+\end{equation}
+
+
+\end{quote}
+
+\begin{quote}
+	Rmk:
+\begin{equation}
+\begin{aligned}
+\frac{D\epsilon}{Dt}
+&= \epsilon_t + \textbf{u}\cdot \nabla \epsilon\\
+&= \frac{p(\rho)}{\rho^2} (\rho_t + \textbf{u}\cdot \nabla\rho)\\
+&= \frac{p(\rho)}{\rho^2}\left(\rho_t + \operatorname{div}(\rho\textbf{u}) - (\operatorname{div}\textbf{u})p\right)\\
+&= -\frac{p(\rho)}{\rho^2}\left(\operatorname{div}\textbf{u}\right)
+\end{aligned}
+\end{equation}
+
+\end{quote}

@@ -1,0 +1,195 @@
+then plugin to the integral
+\begin{equation}
+\begin{aligned}
+\frac{d}{dt}\int_{W_t} \rho f dV
+&= \int_W \left(
+\frac{D(\rho f)}{D t} + (\rho f) \operatorname{div}_y (\textbf{u})
+\right)\,dV\\
+&= \int_W \left(
+\rho \frac{Df}{Dt} -  (\rho f) \operatorname{div}( \textbf{u}) + (\rho f) \operatorname{div}_y (\textbf{u})
+\right)\,dV\\
+&= \int_W \left( \rho \frac{Df}{Dt}	\right)\,dV\\
+\end{aligned}
+\end{equation}
+
+
+we get
+\begin{equation}
+\frac{d}{dt}\int_{W_t} \rho f dV
+= \int_W \left( \rho \frac{Df}{Dt}	\right)\,dV,\quad\text{$\forall f$ is smooth function}
+\end{equation}
+
+
+\begin{quote}
+	Notice that:
+\begin{equation}
+\frac{d}{dt}\int_{W_t} \rho f dV
+= \int_W \left( \rho \frac{Df}{Dt}	\right)\,dV
+\end{equation}
+so when we consider a vector fucntion $\textbf{u}$, we can write
+\begin{equation}
+\begin{aligned}
+\frac{d}{dt}\int_{W_t} \rho \textbf{u} dV
+&= \frac{d}{dt}\int_{W_t} \rho (u_1,u_2,u_3) dV\\
+&= \left(\frac{d}{dt}\int_{W_t} \rho u_1 dV, \frac{d}{dt}\int_{W_t} \rho u_2 dV,\frac{d}{dt}\int_{W_t} \rho u_3 dV\right)\\
+&= \left(
+\int_W \left( \rho \frac{Du_1}{Dt}	\right)\,dV,
+\int_W \left( \rho \frac{Du_2}{Dt}	\right)\,dV,
+\int_W \left( \rho \frac{Du_3}{Dt}	\right)\,dV
+\right)\\
+&= \int_W \left(
+\rho \frac{Du_1}{Dt},
+\rho \frac{Du_2}{Dt}
+\rho \frac{Du_3}{Dt}
+\right)\,dV\\
+&= \int_W \rho \frac{D}{Dt}\left(u_1,u_2,u_3\right)\,dV\\
+&= \int_W \rho \frac{D\textbf{u}}{Dt}\,dV\\
+\end{aligned}
+\end{equation}
+
+
+
+\end{quote}
+
+Now we rewrite BM3
+\begin{equation}
+\frac{d}{dt} \int_{W_t} \rho \textbf{u} dV = -\int_{W_t} \nabla pdV + \int_{W_t} \rho \textbf{b}dV
+\end{equation}
+to be
+\begin{equation}
+\frac{d}{dt} \int_{W_t} \rho \textbf{u} dV + \int_{W_t} \nabla pdV - \int_{W_t} \rho \textbf{b}dV = 0
+\end{equation}
+then using the result from above
+\begin{equation}
+\begin{aligned}
+0 &= \frac{d}{dt} \int_{W_t} \rho \textbf{u} dV + \int_{W_t} \nabla pdV - \int_{W_t} \rho \textbf{b}dV\\
+0 &=\int_{W_t} \rho \frac{D\textbf{u}}{Dt} dV + \int_{W_t} \nabla pdV - \int_{W_t} \rho \textbf{b}dV\\
+0 &= \int_{W_t} \left(\rho \frac{D\textbf{u}}{Dt} dV + \nabla pdV - \rho \textbf{b}\right)dV,\quad \forall W_t
+\end{aligned}
+\end{equation}
+imply 
+\begin{equation}
+\rho \frac{D\textbf{u}}{Dt} dV + \nabla pdV - \rho \textbf{b} = 0
+\end{equation}
+which is just BM1, this means BM3 is equivalent to BM1. 
+
+Similarly, 
+\begin{equation}
+\frac{d}{dt}\int_{W} \rho \textbf{u} dV= \int_{\partial W_t} p\textbf{n} + \rho (\textbf{u}\cdot \textbf{n})\textbf{u} dA + \int_{W}\rho \textbf{b} dV
+\end{equation}
+ so that 
+\begin{equation}
+\text{BM1} \Leftrightarrow \text{BM2} \Leftrightarrow \text{BM3}
+\end{equation}
+By an arrgument similart ot the proof of the transport theorem, for any smooth function $f:D\times [0,T] \to \mathbb{R}$, we have
+\begin{equation}
+\frac{d}{dt}\left(\int_{W_t} fdV\right)
+= \int_{W_t} \left(\frac{Df}{Dt} + f(\operatorname{div}\textbf{u})\right) dV
+\label{eq:transport thm without mass density 1}
+\end{equation}
+
+
+or in the other form as the textbook
+\begin{equation}
+\frac{d}{dt}\int_{W_t} f dV = \int_{W_t} \left(\frac{\partial f}{\partial t} + \operatorname{div}(f\textbf{u})\right)dV,
+\label{eq:transport thm without mass density 2}
+\end{equation}
+since $\displaystyle\frac{Df}{Dt} = \frac{\partial f}{\partial t} + \textbf{u}\cdot \nabla f$, and these 2 equations $(\ref{eq:transport thm without mass density 1})$ and $(\ref{eq:transport thm without mass density 2})$ is called the \textit{Transport theorem without mass density}.
+
+\begin{quote}
+	Rmk:
+Here we consider the \textit{Transport theorem} (with mass density):
+\begin{equation}
+\frac{d}{dt}\int_{W_t} \rho f dV = \int_{W_t} \rho \frac{Df}{Dt} dV,
+\end{equation}
+if we take $\rho$ to be a constant (ex: $\rho =1$), we have
+\begin{equation}
+\frac{d}{dt}\int_{W_t} f dV = \int_{W_t} \frac{Df}{Dt} dV,
+\end{equation}
+however compare to the equation without no mass density  $(\ref{eq:transport thm without mass density 1})$​,
+\begin{equation}
+\frac{d}{dt}\left(\int_{W_t} fdV\right)
+= \int_{W_t} \frac{Df}{Dt}dV + \int_{W_t}f(\operatorname{div}\textbf{u}) dV
+\end{equation}
+we have an extra term contain $f(\operatorname{div}\textbf{u})$. \textbf{BUT}, if  we consider more carefully, the mass density $\rho$ here must satisfy the continuity equation, i.e.
+\begin{equation}
+\rho_t + \operatorname{div}(\rho \textbf{u}) = 0
+\end{equation}
+so that if mass density is a constant (ex: $\rho = 1 $), we have
+\begin{equation}
+\begin{aligned}
+\rho_t + \operatorname{div}(\rho \textbf{u}) = 0 + \operatorname{div}(\textbf{u}) = 0
+\end{aligned}
+\end{equation}
+so that $\operatorname{div}\textbf{u} = 0$, which means the extra term vanishing, and the \textit{transport theorem with mass density} and \textit{transport theorem without mass density} are equivalent.
+\end{quote}
+
+\subsubsection{Def:} % H3 title
+
+And ideal fluid is one in whuch there are no shear stresses.Hence Euler's equation 
+\begin{equation}
+\textbf{u}_t  + (\textbf{u}\cdot \nabla)\textbf{u} = -\frac{\nabla p}{\rho} + \textbf{b}
+\end{equation}
+holds for ideal fluid.
+
+\subsection{Incompressible} % H2 title
+
+We call a flow incompressible if for any subregion $W \subset D $
+\begin{equation}
+\text{volumn}(W_t) = \int_{W_t} dV = \text{constant.}
+\end{equation}
+int time $t$, $W_t = \varphi_t(W)$, where $\varphi_t$ is flow map.
+
+Then a flow is incompressible if and only if
+\begin{equation}
+\begin{aligned}
+0 &= \frac{d}{dt}\int_{W_t} dV_y\\
+&= \frac{d}{dt} \int_{W} J(\textbf{x},t) dV_x\\
+&= \int_{W} \frac{\partial}{\partial t} J(\textbf{x},t) dV_x\\
+&= \int_{W} (\operatorname{div}\textbf{u})J(\textbf{x},t) dV_x\\
+&= \int_{W} (\operatorname{div}\textbf{u})dV_y\\
+\end{aligned}
+\end{equation}
+imply 
+\begin{equation}
+\operatorname{div}\textbf{u} = 0
+\Leftrightarrow
+\frac{\partial J}{\partial t} = (\operatorname{div}\textbf{u}) J = 0
+\end{equation}
+so that $J(\textbf{x},t)$ is a constant, notice that $J(\textbf{x},0) = 0$, we have
+\begin{equation}
+J(\textbf{x},t) = 1,\quad \forall x\in D, t>0
+\end{equation}
+
+
+\begin{quote}
+	Rmk:
+Since
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \operatorname{div}(\rho \textbf{u}) = 0 \Rightarrow \frac{D\rho}{Dt} = \rho_t + \textbf{u}\cdot \nabla \rho = -\rho \operatorname{div}\textbf{u} = 0
+\end{equation}
+so that $D\rho/Dt = 0$. Hence, the mass density is constant following the fluid for incompressible fluid.
+\end{quote}
+
+\subsection{Homogeneous} % H2 title
+
+\subsubsubsection{Def:} % H4 title
+
+A fluid is said to be homogeneous, if $\rho (\textbf{x},t) = \rho(t)$,$\forall x\in D$
+
+\begin{quote}
+	Rmk:
+For incompressible homogeneous fluid,
+\begin{equation}
+\rho(\textbf{x},t) = \rho(t)\quad\text{and}\quad \frac{D\rho}{Dt} = 0
+\end{equation}
+so that
+\begin{equation}
+\begin{aligned}
+0 = \frac{D\rho}{Dt} &= \frac{\partial\rho}{\partial t} + \operatorname{div}(\rho\textbf{u})\\
+&=  \frac{\partial\rho}{\partial t} + \textbf{u}\cdot \nabla \rho + \rho \operatorname{div}\textbf{u}\\
+&=  \frac{\partial\rho}{\partial t} + \textbf{u}\cdot \textbf{0} + \rho \cdot 0 =\rho_t
+\end{aligned}
+\end{equation}
+that is $\rho_t=0$. Then $\rho(t) = \text{constant} = \rho(0)$, $\forall t>0$
+\end{quote}
