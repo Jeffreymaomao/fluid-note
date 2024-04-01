@@ -28,6 +28,7 @@
 ## Class Note
 
 - Chapter 1 - [[download](https://raw.githubusercontent.com/Jeffreymaomao/fluid-note/main/Ch1/main/main.pdf)] [[preview](https://github.com/Jeffreymaomao/fluid-note/blob/main/Ch1/main/main.pdf)]
+- Levi-Cevita symbols [[download](https://raw.githubusercontent.com/Jeffreymaomao/fluid-note/main/Levi-Civita/Levi-Civita.pdf)] [[preview](https://github.com/Jeffreymaomao/fluid-note/blob/main/Levi-Civita/Levi-Civita.pdf)]
 
 
 
