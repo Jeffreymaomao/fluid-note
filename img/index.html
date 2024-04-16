@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch1 Images</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/heic2any/0.0.4/heic2any.min.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+    </div>
+    <main>
+        <div class="img-wrapper"></div>
+    </main>
+    <script>
+    const imgWrapper = document.querySelector(".img-wrapper");
+    const sidebar = document.querySelector(".sidebar");
+    // bash
+    // for day in {1..12}; do num=$(ls day${day}-*-*.* | awk -F'-' '{print $3}' | awk -F'.' '{print $1}' | sort -n | tail -n 1); echo "day${day}\\t: $num"; done
+    const struct = [
+        {"prefix": "day1-0219", "start": 1, "end": 15},
+        {"prefix": "day2-0221", "start": 1, "end": 8},
+        {"prefix": "day3-0226", "start": 1, "end": 10},
+        {"prefix": "day4-0226", "start": 1, "end": 8},
+        {"prefix": "day5-0306", "start": 1, "end": 7},
+        {"prefix": "day6-0307", "start": 1, "end": 11},
+        {"prefix": "day7-0311", "start": 1, "end": 7},
+        {"prefix": "day8-0313", "start": 1, "end": 13},
+        {"prefix": "day9-0318", "start": 1, "end": 12},
+        {"prefix": "day10-0320", "start": 1, "end": 7},
+        {"prefix": "day11-0325", "start": 1, "end": 9},
+        {"prefix": "day12-0327", "start": 1, "end": 7},
+        // {"prefix": "day13-0401", "start": 1, "end": 10},
+        // {"prefix": "day14-0410", "start": 1, "end": 10},
+    ];
+    const buttons = [];
+    struct.forEach((day, index) => {
+        const buttonContainer = document.createElement("div");
+        const button = document.createElement("button");
+        buttonContainer.classList.add("button-container")
+        sidebar.appendChild(buttonContainer);
+        buttonContainer.appendChild(button);
+
+        button.setAttribute("data-index", index);
+        button.innerText = day.prefix;
+        buttons.push(button);
+
+        button.addEventListener("click", (e) => {
+            buttons.forEach((b) => { b.classList.remove("isActive"); });
+            button.classList.add("isActive");
+            imgWrapper.innerHTML = "";
+            (async () => {
+                await loadImage(struct[index], struct[index].start, imgWrapper);
+            })();
+        })
+    })
+    // ======================================================
+    const imgURLs = {};
+    async function loadImage(day, index, imgWrapper) {
+        const filename = `${day.prefix}-${index}.HEIC`;
+        const imgContainer = document.createElement("div");
+        const img = document.createElement("img");
+        const loaderContainer = document.createElement("div");
+        const loader = document.createElement("div");
+        imgContainer.classList.add("img-container");
+        img.classList.add("img");
+        loaderContainer.classList.add("loader-container");
+        loader.classList.add("loader");
+
+        imgWrapper.appendChild(imgContainer);
+        imgContainer.appendChild(loaderContainer);
+        loaderContainer.appendChild(loader);
+        imgContainer.appendChild(img);
+        imgContainer.setAttribute("data-filename", filename);
+        img.alt = `${filename}`;
+
+        try {
+            const response = await fetch(`./${filename}`);
+            const blob = await response.blob();
+            const nextIndex = index + 1;
+            if (nextIndex <= day.end) {
+                await loadImage(day, nextIndex, imgWrapper);
+            }
+
+            if (imgURLs[filename]) {
+                img.src = imgURLs[filename];
+                loaderContainer.remove();
+                return;
+            }
+
+            const jpegBlob = await heic2any({
+                blob: blob,
+                toType: 'image/jepg',
+                quality: 1.0
+            });
+            const imgSrc = URL.createObjectURL(jpegBlob);
+            img.src = imgSrc;
+            imgURLs[filename] = imgSrc;
+            loaderContainer.remove();
+
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    async function loadImages(struct, imgWrapper) {
+            for (const day of struct) {
+                await loadImage(day, day.start, imgWrapper);
+            }
+        }
+        (async () => {
+            buttons[0].classList.add("isActive");
+            await loadImage(struct[0], struct[0].start, imgWrapper);
+        })();
+    // loadImages(struct, imgWrapper);
+    </script>
+    <style>
+    * {
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    html,
+    body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .sidebar {
+        width: 200px;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: scroll;
+    }
+
+    .button-container {
+        margin-bottom: 10px;
+    }
+
+    .button-container button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: #fff;
+        color: #222;
+        border-radius: 10px;
+        box-shadow: 0px 0px 3px #aaa;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        font-size: 12pt;
+        font-weight: 300;
+        letter-spacing: 1.5px;
+        transform: translate(0);
+    }
+
+    .button-container button.isActive {
+        background-color: rgba(10, 100, 200, 0.7);
+        color: #fff;
+    }
+
+    .button-container button.isActive:hover {
+        background-color: rgba(10, 100, 200, 0.9);
+        color: #fff;
+    }
+
+
+    .button-container button:hover {
+        transform: translate(5px, 0px);
+        background-color: #f0f0f0;
+    }
+
+    .button-container button:active {
+        transform: translate(-2px, 0px);
+        background-color: #eee;
+    }
+
+    main {
+        width: calc(100% - 200px);
+        height: 100%;
+
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .img-wrapper {
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+    }
+
+    .img-container {
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .img {
+        width: 100%;
+        min-height: 300px;
+    }
+
+    .img-container:after {
+        content: attr(data-filename);
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: rgba(10, 100, 200, 0.8);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+
+    .img-container:hover:after {
+        opacity: 1.0;
+    }
+
+    .loader-container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .loader {
+        width: 40px;
+        aspect-ratio: 1;
+        color: rgba(100, 10, 30, 1.0);
+        position: relative;
+        background: radial-gradient(10px, currentColor 94%, #0000);
+    }
+
+    .loader:before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background:
+            radial-gradient(9px at bottom right, #0000 94%, currentColor) top left,
+            radial-gradient(9px at bottom left, #0000 94%, currentColor) top right,
+            radial-gradient(9px at top right, #0000 94%, currentColor) bottom left,
+            radial-gradient(9px at top left, #0000 94%, currentColor) bottom right;
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        animation: l18 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+    }
+
+    @keyframes l18 {
+        33% {
+	        color: rgba(200, 10, 30, 1.0);
+            inset: -10px;
+            transform: rotate(0deg)
+        }
+
+        66% {
+	        color: rgba(200, 10, 30, 1.0);
+            inset: -10px;
+            transform: rotate(90deg)
+        }
+
+        100% {
+	        color: rgba(100, 10, 30, 1.0);
+            inset: 0;
+            transform: rotate(90deg)
+        }
+    }
+    </style>
+</body>
+
+</html>
