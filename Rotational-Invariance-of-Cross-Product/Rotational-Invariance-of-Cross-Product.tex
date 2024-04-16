@@ -1,0 +1,383 @@
+
+% Sets the document class and font size
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=1in, top=0.8in, bottom=0.9in]{geometry}
+
+\usepackage[utf8]{inputenc}    % Input encoding
+\usepackage[T1]{fontenc}       % Font encoding
+\usepackage{fontspec}          % font encoding
+
+% Advanced math typesetting
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{physics}
+
+% Symbols and Text
+\usepackage{bbold}     % bold font
+\usepackage{ulem}      % strikethrough
+\usepackage{listings}  % Source code listing
+\usepackage{import}    % Importing code and other documents
+
+% graphics
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{tcolorbox}
+%\usepackage{changepage}
+
+% figure
+\usepackage{float}
+\usepackage{subfigure}
+
+\usepackage{hyperref}  % Hyperlinks in the document
+\hypersetup{
+    colorlinks=true,
+    linkcolor=Red,
+    filecolor=red,
+    urlcolor=Blue,
+    citecolor=blue,
+    pdftitle={Article},
+    pdfauthor={Author},
+}
+
+\usepackage{xeCJK}               % Chinese, Japanese, and Korean characters
+\setCJKfamilyfont{kai}{標楷體}    % Chinese font
+
+\usepackage{subfiles}  % Best loaded last in the preamble
+\usepackage{titlesec}  % fortitle
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{
+    \@startsection{paragraph}{5}{\z@}{3.25ex\@plus1ex\@minus.2ex}{-1em}{\normalfont\normalsize\bfseries}
+}
+\renewcommand\subparagraph{
+    \@startsection{subparagraph}{6}{\parindent}{3.25ex\@plus1ex\@minus.2ex}{-1em}{\normalfont\normalsize\bfseries}
+}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewenvironment{quote}
+    {\begin{center}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline
+    }
+    { 
+    \\\hline
+    \end{tabular} 
+    \end{center}
+    }
+
+\title{Note: Rotational Invariance of Cross Product}
+\date{\today}
+\author{Chang-Mao Yang 楊長茂}
+
+\begin{document}
+%================================================================================================
+\maketitle
+\tableofcontents
+\section{Definitions}
+
+\subsection{Levi-Civita symbol}
+In three dimensions, the Levi-Civita symbol is defined by
+\begin{equation}
+\varepsilon _{ijk} =
+\begin{cases}
++1	&	\text{if $(i,j,k)$ is $(1,2,3)$, $(2,3,1)$ or $(3,1,2)$},\\
+-1	&	\text{if $(i,j,k)$ is $(3,2,1)$, $(2,1,3)$ or $(2,1,3)$},\\
+\;\;\,0&\text{if $i=j$, $i=k$ or $k=i$}.
+\end{cases}
+\end{equation}
+\subsection{Cross Product}
+Given two vectors $\vec{a}=(a_1,a_2,a_3)$ and $\vec{b}=(b_1,b_2,b_3)$ in $\mathbb{R}^3$, define the cross product is given by
+\begin{equation}
+\vec{a} \times \vec{b} = \sum_{i,j,k=1}^{3}\varepsilon_{i,j,k} a_{i} b_{j} \hat{e}_{k}
+\end{equation}
+
+\subsection{Rotation}
+Let $\mathbf{R}$ be a rotational matrix in $\mathbb{R}^3$, where 
+\begin{equation}
+\mathbf{R} = 
+\begin{pmatrix}
+R_{1,1} & R_{1,2} & R_{1,3}\\
+R_{2,1} & R_{2,2} & R_{2,3}\\
+R_{3,1} & R_{3,2} & R_{3,3}
+\end{pmatrix}.
+\end{equation}
+For a vector $\vec{a}$ in $\mathbb{R}^3$, define the rotation of vector is given by
+\begin{equation}
+\mathbf{R}\left(\vec{a}\right) = \mathbf{R} \vec{a} = \sum_{i,j=1}^{3} \left(\mathbf{R}\vec{a}\right)_i \hat{e}_{i} = \sum_{i,j=1}^{3} R_{i,j} a_{j} \hat{e}_{i}
+\label{eq:def-rotation-matrix}
+\end{equation}
+Notice, for the rotation matrix, we have the following properties
+\begin{itemize}
+\item $\mathbf{R}^{T}\mathbf{R} = \mathbf{R}^{T}\mathbf{R} = \mathbf{I}$, where $\mathbf{I}$ is identity matrix. (That is $\mathbf{R}^{T} = \mathbf{R}^{-1}$, where $\mathbf{R}^{-1}$ is the inverse of $\mathbf{R}$)
+\item The determinant of $\mathbf{R}$ is 1, $\det(\mathbf{R}) = 1$.
+\end{itemize}
+
+
+\subsection{Determinant}
+For a matrix $\mathbf{A}$ in $\mathbb{R}^3$, where
+\begin{equation}
+\mathbf{A} = 
+\begin{pmatrix}
+a_{1,1} & a_{1,2} & a_{1,3}\\
+a_{2,1} & a_{2,2} & a_{2,3}\\
+a_{3,1} & a_{3,2} & a_{3,3}
+\end{pmatrix}.
+\end{equation}
+The determinant of $\mathbf{A}$ can be defined by
+\begin{equation}
+\det(\mathbf{A}) = \sum_{i,j,k=1}^{3} \varepsilon_{i,j,k} a_{1,i}a_{2,j}a_{3,k},
+\label{eq:def-determinant}
+\end{equation}
+also known as {\it Leibniz formula} for determinants in $\mathbb{R}^3$.
+
+\begin{quote}
+This can be easily shown by triple product of vectors. Given three vectors in $\mathbb{R}^3$, 
+\begin{equation}
+\vec{a} = (a_1, a_2, a_3),\quad
+\vec{b} = (b_1, b_2, b_3)\quad\text{and}\quad
+\vec{c} = (c_1, c_2, c_3),
+\end{equation}
+the triple product is given by
+\begin{equation}
+\vec{a}\cdot \left(\vec{b}\times\vec{c}\right) 
+=\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+= \sum_{i,j,k=1}^{3} \varepsilon_{i,j,k} a_{i} b_{j} c_{k}.
+\end{equation}
+After changing the symbols $a_{i}\to a_{1,i}$, $b_{j}\to b_{2,j}$ and $c_{k}\to c_{3,k}$, that is 
+\begin{equation}
+\vec{a} = (a_{1,1}, a_{1,2}, a_{1,3}),\quad
+\vec{b} = (a_{2,1}, a_{2,2}, a_{2,3})\quad\text{and}\quad
+\vec{c} = (a_{3,1}, a_{3,2}, a_{3,3}),
+\end{equation}
+the triple product then corresponding to the determinant of $\mathbf{A}$, 
+\begin{equation}
+\vec{a}\cdot \left(\vec{b}\times\vec{c}\right) 
+=\begin{vmatrix}
+a_{1,1} & a_{1,2} & a_{1,3}\\
+a_{2,1} & a_{2,2} & a_{2,3}\\
+a_{3,1} & a_{3,2} & a_{3,3}
+\end{vmatrix}
+= \det(\mathbf{A})
+= \sum_{i,j,k=1}^{3} \varepsilon_{i,j,k} a_{1,i}a_{2,j}a_{3,k}.
+\end{equation}
+
+\end{quote}
+
+\newpage
+\section{Rotational Invariance of Cross Product}
+Let $\mathbf{R}$ be a rotational matrix in $\mathbb{R}^3$, where 
+\begin{equation}
+\mathbf{R} = 
+\begin{pmatrix}
+R_{1,1} & R_{1,2} & R_{1,3}\\
+R_{2,1} & R_{2,2} & R_{2,3}\\
+R_{3,1} & R_{3,2} & R_{3,3}
+\end{pmatrix}.
+\end{equation}
+For any two vectors $\vec{u}$ and $\vec{v}$ in $\mathbf{R}^3$, we have 
+\begin{equation}
+\mathbf{R}\left(\vec{u}\times\vec{v}\right) = \mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right),
+\end{equation}
+where 
+\begin{equation}
+\vec{u} = (u_1, u_2, u_3) \quad\text{and}\quad \vec{v} = (v_1, v_2, v_3).
+\end{equation}
+
+\subsection{Proof 1}
+\noindent{\it Proof.} First, we consider
+\begin{equation}
+\mathbf{R}^{-1}\left(\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right)\right)
+= \sum_{i,j=1}^{3} (\mathbf{R}^{-1})_{i,j} \left(\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right)\right)_{j} \hat{e}_{i}
+\end{equation}
+Since, $\mathbf{R}^{-1} = \mathbf{R}^{T}$ $\Rightarrow$ $(\mathbf{R}^{-1})_{i,j} = (\mathbf{R}^{T})_{i,j} = (\mathbf{R})_{j,i} = R_{j,i}$, then, pluggin to the equation 
+and expand it by the definition (\ref{eq:def-rotation-matrix}) of rotational matrix in component form
+\begin{align}
+\mathbf{R}^{-1}\left(\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right)\right)
+&= \sum_{i,j=1}^{3} R_{j,i} \left(\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right)\right)_{j} \hat{e}_{i}\\
+&= \sum_{i,j=1}^{3} R_{j,i} \left(
+\sum_{n,m=1}^{3}\varepsilon_{j,n,m} \left(\mathbf{R}\vec{u}\right)_{n}\left(\mathbf{R}\vec{v}\right)_{m}
+\right) \hat{e}_{i}\\
+&= \sum_{i,j=1}^{3} R_{j,i} \left(
+\sum_{n,m=1}^{3}\varepsilon_{j,n,m} \left(\sum_{k=1}^{3}R_{n,k}u_k\right)\left(\sum_{\ell=1}^{3}R_{m,\ell}v_{\ell}\right)
+\right) \hat{e}_{i}\\
+&= \sum_{i,j,n,m,k,\ell=1}^{3} R_{j,i} \left(
+\varepsilon_{j,n,m} \left(R_{n,k}u_k\right)\left(R_{m,\ell}v_{\ell}\right)
+\right) \hat{e}_{i}\\
+&= \sum_{i,j,n,m,k,\ell=1}^{3} R_{j,i} \varepsilon_{n,m,j} R_{n,k} u_k R_{m,\ell} v_{\ell} \hat{e}_{i}\\
+&= \sum_{i,k,\ell=1}^{3}  \left(\sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,i} R_{n,k} R_{m,\ell} \right) u_k v_{\ell} \hat{e}_{i}
+\end{align}
+In order to simplify the above formula, I provide a specific equation detailed in Appendix (\ref{app:Levi-Civita-prop}), which shows that the summation inside is just a Levi-Civita symbol. Therefore, it follows that
+\begin{equation}
+\mathbf{R}^{-1}\left(\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right)\right)
+= \sum_{i,k,\ell=1}^{3}  \varepsilon_{i,k,\ell} u_k v_{\ell} \hat{e}_{i}\\
+= \vec{u}\times\vec{v}.
+\end{equation}
+Last, acting a rotation on both side, one may derive 
+\begin{equation}
+\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right) = \mathbf{R}\left(\vec{u}\times\vec{v}\right),
+\end{equation}
+as claimed. $\square$
+%---
+\newpage
+\subsection{Proof 2}
+\begin{figure}[h]
+\centering
+\subfile{img/Fig1.tex}
+\caption{Rotation the cross product $\vec{u}\times\vec{v}$ by rotational matrix $\mathbf{R}$.}
+\label{fig:1}
+\end{figure}
+\noindent For the equation 
+\begin{equation}
+\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right) = \mathbf{R}\left(\vec{u}\times\vec{v}\right).
+\label{eq:proof2-eq}
+\end{equation}
+Considering the following discussions:
+\begin{itemize}
+\item[(a)] The inner product of $\mathbf{R}\left(\vec{u}\right)$ and $\mathbf{R}\left(\vec{u}\times\vec{v}\right)$ 
+\begin{align}
+\left[\mathbf{R}\left(\vec{u}\right)\right]\cdot \left[\mathbf{R}\left(\vec{u}\times\vec{v}\right)\right]
+&= \left[\mathbf{R}\left(\vec{u}\right)\right]^{T}\left[\mathbf{R}\left(\vec{u}\times\vec{v}\right)\right]
+= \left(\vec{u}\right)^{T}\mathbf{R}^{T}\left[\mathbf{R}\left(\vec{u}\times\vec{v}\right)\right]\\
+&= \left(\vec{u}\right)^{T}\mathbf{R}^{-1}\mathbf{R}\left(\vec{u}\times\vec{v}\right)
+= \left(\vec{u}\right)^{T}\left(\vec{u}\times\vec{v}\right) = 0
+\end{align}
+
+\item[(b)] The inner product of $\mathbf{R}\left(\vec{v}\right)$ and $\mathbf{R}\left(\vec{u}\times\vec{v}\right)$ 
+\begin{align}
+\left[\mathbf{R}\left(\vec{v}\right)\right]\cdot \left[\mathbf{R}\left(\vec{u}\times\vec{v}\right)\right]
+&= \left[\mathbf{R}\left(\vec{v}\right)\right]^{T}\left[\mathbf{R}\left(\vec{u}\times\vec{v}\right)\right]
+= \left(\vec{v}\right)^{T}\mathbf{R}^{T}\left[\mathbf{R}\left(\vec{u}\times\vec{v}\right)\right]\\
+&= \left(\vec{v}\right)^{T}\mathbf{R}^{-1}\mathbf{R}\left(\vec{u}\times\vec{v}\right)
+= \left(\vec{v}\right)^{T}\left(\vec{u}\times\vec{v}\right) = 0
+\end{align}
+
+\item[(c)] If vectors $\vec{u}$ and $\vec{v}$ are parallel, that is $\vec{u} = \alpha \vec{v}$, the left-hand side of equation (\ref{eq:proof2-eq}) becomes
+\begin{equation}
+\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right) = 
+\mathbf{R}\left(\alpha\vec{v}\right) \times \mathbf{R}\left(\vec{v}\right) = 
+\alpha\Big(\mathbf{R}\left(\vec{v}\right) \times \mathbf{R}\left(\vec{v}\right)\Big) = 0
+\end{equation}
+and the right-hand side of equation (\ref{eq:proof2-eq}) becomes
+\begin{equation}
+\mathbf{R}\left(\vec{u}\times\vec{v}\right) = \mathbf{R}\left(\alpha \vec{v}\times\vec{v}\right) = 0.
+\end{equation}
+This means $0=0$, the equation is valid.
+\end{itemize}
+
+These three discussions shows that 
+\begin{equation}
+\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right) = k\, \mathbf{R}\left(\vec{u}\times\vec{v}\right).
+\label{eq:linear}
+\end{equation}
+If we define the angle between $\vec{a}$ and $\vec{b}$ in $\mathbb{R}^{3}$ is $\theta$ (see Figure \ref{fig:1}), and taking the norm of both side of equation (\ref{eq:linear}), one may derive
+\begin{align}
+ \norm{\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right)} 
+	&= k \norm{\mathbf{R}\left(\vec{u}\times\vec{v}\right)}\\
+\Rightarrow 
+\norm{\mathbf{R}\left(\vec{u}\right)} \norm{\mathbf{R}\left(\vec{v}\right)} \sin\theta
+	&= k \det(\mathbf{R}) \norm{\vec{u}\times\vec{v}}\\
+\Rightarrow 
+\det(\mathbf{R})^2 \norm{\vec{u}}\norm{\vec{v}} \sin\theta
+	&= k \det(\mathbf{R}) \norm{\vec{u}}\norm{\vec{v}} \sin\theta\\
+\Rightarrow 
+\det(\mathbf{R}) &= k.
+\end{align}
+Also, since the determinant of rotational matrix is 1, i.e. $\det(\mathbf{R})=k=1$, one may obtain
+\begin{equation}
+\mathbf{R}\left(\vec{u}\right) \times \mathbf{R}\left(\vec{v}\right) = \mathbf{R}\left(\vec{u}\times\vec{v}\right),
+\end{equation}
+as claimed. $\square$
+
+
+ 
+%%%%%%%%
+\newpage
+\section{Appendix} \label{app:Levi-Civita-prop}
+Notice that the this term has free indices $i,k,\ell$, we denote it as $f_{i,k,\ell}$, where $i,k,\ell \in \{1,2,3\}$ and 
+\begin{equation}
+f_{i,k,\ell} = \sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,i} R_{n,k} R_{m,\ell}
+\end{equation}
+Now, considering the following three cases:
+\begin{itemize}
+\item[(a)] If $(i,k,\ell) = (1,2,3)$, according to the equation (\ref{eq:def-determinant}), it just the determinant of $\mathbf{R}^{T}$, which equal to $1$, that is 
+\begin{equation}
+f_{1,2,3} = \sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,1} R_{n,2} R_{m,3} 
+= \det\left(\mathbf{R}^{T}\right) = \det(\mathbf{R}) = 1.
+\end{equation}
+\item[(b)] If we exchange the indices $(i,k,\ell)\to(i,\ell,k)$, we have
+\begin{align}
+f_{i,k,\ell} &= \sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,i} R_{n,k} R_{m,\ell}\quad\text{(original equation)}\notag\\
+f_{i,\ell,k} 
+&= \sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,i} R_{n,\ell} R_{m,k}
+= \sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,i} R_{m,k} R_{n,\ell}\\
+&= - \sum_{\,j,n,m=1}^{3}\varepsilon_{j,m,n} R_{j,i} R_{m,k} R_{n,\ell}\quad\text{(changing $m\to n$, $n\to m$)}\\
+&= - \sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,i} R_{n,\ell} R_{m,k} = - f_{i,k,\ell}.
+\end{align}
+Using similar methods, one can derive
+\begin{equation}
+\begin{aligned}
+f_{i,\ell,k} &= - f_{i,k,\ell}\quad (k\leftrightarrow \ell)\\
+f_{k,i,\ell} &= - f_{i,k,\ell}\quad (i\leftrightarrow k)
+\end{aligned}
+\end{equation}
+This implies that, exchange of two indices changes the sign.
+\item[(c)] Last, if $k=\ell$ ($\ell\to k$), we have
+\begin{align}
+f_{i,k,\ell} &= \sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,i} R_{n,k} R_{m,\ell}\quad\text{(original equation)}\notag\\
+f_{i,k,k} 
+&= \sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,i} R_{n,k} R_{m,k}
+\quad\text{(changing $m\to n$, $n\to m$)}\\
+&= \sum_{\,j,n,m=1}^{3}\varepsilon_{j,m,n} R_{j,i} R_{m,k} R_{n,k} 
+= \sum_{\,j,n,m=1}^{3}\varepsilon_{j,m,n} R_{j,i} R_{n,k} R_{m,k}\\
+&= -\sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,i} R_{n,k} R_{m,k} = - f_{i,k,k}.
+\end{align}
+Then we have $f_{i,k,k} = - f_{i,k,k}$, and the only possible value for $f_{i,k,k}$ is $0$. Using similar methods, one can derive
+\begin{equation}
+\begin{aligned}
+f_{i,k,k} &= 0 	\quad (\ell \to k)\\
+f_{k,k,\ell} &= 0\quad (i\to k)\\
+f_{i,k,i} &= 0	\quad (\ell \to i)\\
+\end{aligned}
+\end{equation}
+This implies that, the symbols $f_{i,k,\ell}=0$, if there is any repeated indices.
+\end{itemize}
+These three cases (a), (b) and (c) leads to the conclusion that the symbols $f_{i,k,\ell}$ is just corresponding to the Levi-Civita symbol 
+\begin{equation}
+f_{i,k,\ell} = \sum_{\,j,n,m=1}^{3}\varepsilon_{j,n,m} R_{j,i} R_{n,k} R_{m,\ell} = \varepsilon_{i,k,\ell}.
+\end{equation} 
+
+
+
+
+%================================================================================================
+\end{document}
