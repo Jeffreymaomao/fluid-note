@@ -18,22 +18,20 @@
     const imgWrapper = document.querySelector(".img-wrapper");
     const sidebar = document.querySelector(".sidebar");
     // bash
-    // for day in {1..12}; do num=$(ls day${day}-*-*.* | awk -F'-' '{print $3}' | awk -F'.' '{print $1}' | sort -n | tail -n 1); echo "day${day}\\t: $num"; done
+    // for day in {1..12}; do end=$(ls day${day}-*-*.* | awk -F'-' '{print $3}' | awk -F'.' '{print $1}' | sort -n | tail -n 1); prefix=$(ls day${day}-*-*.* | awk -F'-' '{print $1"-"$2}' | tail -n 1); echo "{ prefix: '$prefix', 'start': 1, 'end': $end},"; done
     const struct = [
-        {"prefix": "day1-0219", "start": 1, "end": 15},
-        {"prefix": "day2-0221", "start": 1, "end": 8},
-        {"prefix": "day3-0226", "start": 1, "end": 10},
-        {"prefix": "day4-0226", "start": 1, "end": 8},
-        {"prefix": "day5-0306", "start": 1, "end": 7},
-        {"prefix": "day6-0307", "start": 1, "end": 11},
-        {"prefix": "day7-0311", "start": 1, "end": 7},
-        {"prefix": "day8-0313", "start": 1, "end": 13},
-        {"prefix": "day9-0318", "start": 1, "end": 12},
-        {"prefix": "day10-0320", "start": 1, "end": 7},
-        {"prefix": "day11-0325", "start": 1, "end": 9},
-        {"prefix": "day12-0327", "start": 1, "end": 7},
-        // {"prefix": "day13-0401", "start": 1, "end": 10},
-        // {"prefix": "day14-0410", "start": 1, "end": 10},
+        { prefix: 'day1-0219', 'start': 1, 'end': 14},
+        { prefix: 'day2-0221', 'start': 1, 'end': 8},
+        { prefix: 'day3-0226', 'start': 1, 'end': 9},
+        { prefix: 'day4-0304', 'start': 1, 'end': 8},
+        { prefix: 'day5-0306', 'start': 1, 'end': 7},
+        { prefix: 'day6-0307', 'start': 1, 'end': 10},
+        { prefix: 'day7-0311', 'start': 1, 'end': 7},
+        { prefix: 'day8-0313', 'start': 1, 'end': 13},
+        { prefix: 'day9-0318', 'start': 1, 'end': 11},
+        { prefix: 'day10-0320', 'start': 1, 'end': 7},
+        { prefix: 'day11-0325', 'start': 1, 'end': 9},
+        { prefix: 'day12-0327', 'start': 1, 'end': 7},
     ];
     const buttons = [];
     struct.forEach((day, index) => {
