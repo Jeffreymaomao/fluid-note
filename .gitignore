@@ -3,9 +3,9 @@ img/
 
 # extension
 *.img
-*.jpg
-*.jepg
-*.heic
+# *.jpg
+# *.jepg
+# *.heic
 *.sh
 *.log
 *.out
