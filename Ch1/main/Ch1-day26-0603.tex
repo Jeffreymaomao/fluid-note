@@ -1,0 +1,133 @@
+\subsubsubsection{1. proof: existence} % H4 title
+
+By the theory on elliptic ODE, there exit a solution $q$ of 
+\begin{equation}
+\begin{cases}
+\nabla^2 q = \operatorname{div} w\quad\text{in }D\\
+\displaystyle \frac{\partial q}{\partial n}\bigg|_{\partial D} = (\nabla q)\cdot n = w\cdot n
+\end{cases}
+\end{equation}
+Let $v=w-\nabla q$, then
+\begin{equation}
+\begin{cases}
+\operatorname{div} v = \operatorname{div}w - \operatorname{div}\nabla q = \operatorname{div}w - \nabla^2 q = 0\\
+\displaystyle v\cdot n = w\cdot n - \frac{\partial q}{\partial n}=0,\quad
+\text{on $D$ and $w = v + \nabla q$}
+\end{cases}
+\end{equation}
+
+
+\subsubsubsection{2. proof: uniqueness} % H4 title
+
+\paragraph{Step1} % H5 title
+
+\textbf{Claim}: For any vector field $V$ on $D$ satisfying $\displaystyle \begin{cases}\operatorname{div}v=0&\text{in $D$}\\ v\cdot n = 0&\text{on $\partial D$}\end{cases}$, and any function $q$ on $D$, we have $\displaystyle \int_{D} v\cdot \nabla q dx = 0$.
+
+\textbf{proof of claim}: Since $\operatorname{div}(qv) = \nabla q \cdot v + q\cdot \operatorname{div}v = \nabla q \cdot v$, by the divergence theorem 
+\begin{equation}
+\int_{D}\nabla q \cdot v dx = \int_{D} \operatorname{div}(qv) dx = \int_{\partial D}(qv)\cdot n d\sigma = 0
+\end{equation}
+
+
+\paragraph{Step2} % H5 title
+
+Suppose $w = v_{1} + \nabla q_1 = v_2 + \nabla q_2$ , where $v_1, v_2$ satisfies
+\begin{equation}
+\displaystyle \begin{cases}\operatorname{div}v_i=0&\text{in $D$}\\ v_i\cdot n = 0&\text{on $\partial D$}\end{cases},\quad \forall i=1,2
+\end{equation}
+then
+\begin{equation}
+\begin{cases}
+(v_1 - v_2) + \nabla (q_1 - q_2) = 0\\
+\left(v_1 - v_2\right) \cdot n = 0
+\end{cases}
+\end{equation}
+By claim
+\begin{equation}
+\begin{aligned}
+0 &=\int_{D}\left(v_1 - v_2\right) \cdot \nabla\left(q_1 - q_1\right) dx\\
+&= \int_{D}\left(v_1 - v_2\right)\left[-\left(v_1 - v_2\right)\right] dx\\
+&= -\int_{D}\left(v_1 - v_2\right)^2 dx\\
+\end{aligned}
+\end{equation}
+we have $v_1 = v_2$.
+
+\subsubsection{Definition} % H3 title
+
+We define the operator $\mathbf{P}$, an orthogonal projection operator, which maps $w$ onto its divergence free part $v$ in the Helmoltz-Hodge decomposition, then
+\begin{equation}
+w = \mathbf{P}w + \nabla q
+\end{equation}
+
+
+\begin{quote}
+	\textbf{Rmk :}
+If $v$ satisfies $\displaystyle \begin{cases}\operatorname{div}v=0&\text{in $D$}\\ v\cdot n = 0&\text{on $\partial D$}\end{cases}$, then $\mathbf{P} v = v$
+\end{quote}
+
+\begin{quote}
+	\textbf{Rmk :}
+$\mathbf{P}(\nabla q) = 0$
+\end{quote}
+
+\begin{quote}
+	\textbf{Rmk :}
+Consider the NS equations
+\begin{equation}
+\begin{aligned}
+\textbf{u}_t + \left(\textbf{u}\cdot \nabla \right) &= - \nabla p + \frac{1}{R} \nabla^2 \textbf{u}\\
+\textbf{u}_t + \nabla p &= -\left(\textbf{u}\cdot \nabla \right) \textbf{u} + \frac{1}{R}\nabla^2\textbf{u}\\
+\mathbf{P}\left(\textbf{u}_t + \nabla p\right)
+&= \mathbf{P}\left(-\left(\textbf{u}\cdot \nabla \right) \textbf{u} + \frac{1}{R}\nabla^2\textbf{u}\right)\\
+\end{aligned}
+\end{equation}
+Since $\mathbf{P}(\nabla p) = 0$, and
+\begin{equation}
+\begin{cases}\operatorname{div}\textbf{u}_t=0&\text{in $D$}\\ \textbf{u}_t\big|_{\partial D} = 0&\text{on $\partial D$}\end{cases}
+\end{equation}
+we have
+\begin{equation}
+\mathbf{P}(\textbf{u}_t) = \textbf{u}_t
+\end{equation}
+then
+\begin{equation}
+\textbf{u}_t = \mathbf{P}\left(-\left(\textbf{u}\cdot \nabla \right) \textbf{u} + \frac{1}{R}\nabla^2\textbf{u}\right)
+\end{equation}
+
+\end{quote}
+\subsubsection{Definition} % H3 title
+
+In the NS equation for a viscous incompressible fluid
+\begin{equation}
+\partial_{t} \textbf{u} + \left(\textbf{u}\cdot\nabla\right)\textbf{u} = -\nabla p + \frac{1}{R}\nabla^2 \textbf{u}
+\end{equation}
+where $\operatorname{div}\textbf{u} = 0$. The term $\nabla^2 \textbf{u}/R$ is the diffusion or dissipation term and $\left(\textbf{u}\cdot\nabla\right)\textbf{u}$ is the inertia or convective term.s
+
+If we neglect the term $\left(\textbf{u}\cdot\nabla\right)\textbf{u}$, we get the Stoke's equation for incompressible flow, this \textit{parabolic type} equation and the solution of the Stoke's equation provide a good approximation to the solution of the NS equation.
+
+\section{Potential Flow} % H1 title
+
+\subsection{Potential flow theorey} % H2 title
+
+Through out this section, all flows are understood to be ideal (inviscid), in the other words, the flow is either incompressible nonviscous ot isentropic and nonviscous.
+
+\begin{quote}
+	\textbf{Rmk :}
+By the previews result, for ideal flow if the flow is irrotation at intial time then it will it will remain irrotational for all time.
+\end{quote}
+
+\subsubsection{Definition} % H3 title
+
+An inviscid irrotational flow is called a potential flow.
+
+\subsubsection{Definition} % H3 title
+
+A domain $D$ is said to be simplify connected if for any continuous closed curve $\gamma :[a,b]\to D$, $\gamma(a)=\gamma(b)$, there exist a continuous function $F:[a,b]\times [0,1]\to D$, s.t.
+\begin{equation}
+\begin{aligned}
+F(s,0) = \gamma(s),&\quad \forall s\in [a,b]\\
+F(a,t) = F(b,t),&\quad \forall t\in [0,1]\\
+F(s,1) = P_0,&\quad \forall s \in [a,b] \text{ for some $P_0 \in D$}
+\end{aligned}
+\end{equation}
+If such $F$ exist, we say that the curve $\gamma$ can be continuously shrink to a point in $D$.

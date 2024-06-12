@@ -14,5 +14,11 @@
 *.gz
 *.toc
 
+*.blend
+*.blend1
+*.key
+*.pxd
+*.pxd/
+
 # file
 make.sh

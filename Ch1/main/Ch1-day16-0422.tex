@@ -1,0 +1,75 @@
+\begin{quote}
+	Test 1
+\begin{enumerate}
+	\item What is stationart
+	\item What is isentropic
+	\item What is irrotational
+
+Test 2
+	\item What is incompressible
+
+\end{enumerate}
+\subsubsection{Definition} % H3 title
+
+\end{quote}
+Anirrotational flow is one for which $\xi = \nabla\times\textbf{u} = 0$, which $\textbf{u}$ is the velocity field of the fluid.
+
+\subsubsection{Cor of Berboulli theorem} % H3 title
+
+Suppose the flow is a stationary isentropic irrotational flow with no external forces, then $\displaystyle \frac{1}{2} \lVert \textbf{u}\rVert^2 + w$ is a constant, where $\nabla w = \nabla p/\rho$.
+
+\subsubsubsection{proof} % H4 title
+
+By the proof of the Bernoulli theorem
+\begin{equation}
+\nabla \left(\frac{1}{2}\lVert \textbf{u}\rVert^2 + w\right) = \textbf{u}\times \left(\nabla\times \textbf{u}\right) = 0
+\end{equation}
+so that $\displaystyle \frac{1}{2} \lVert \textbf{u}\rVert^2 + w$ is a constant.
+
+
+
+\subsubsubsection{Example} % H4 title
+
+Interpretation of vorticity in $2$-dimensional flow. Recall that $\vec{\xi} = \nabla \times \textbf{u}$, for $2$-dimensional flow 
+\begin{equation}
+\textbf{u}(\textbf{x}) = \textbf{u}(x_1, x_2, t) = (u_1, u_2, 0)
+= (u_1(x_1,x_2,t), u_2(x_1,x_2,t), 0)
+\end{equation}
+we denote
+\begin{equation}
+\vec{\xi} = (0,0,\xi) =
+\begin{vmatrix}
+\hat{e}_1 & \hat{e}_2 & \hat{e}_3\\
+\partial_1 & \partial_2 & \partial_2\\
+u_1 & u_2 & 0
+\end{vmatrix}
+= (0,\partial_1 u_2- \partial_2 u_1)
+\end{equation}
+so that $\xi = \partial_1 u_2- \partial_2 u_1$.
+
+If in addition, the fluid is incompressible, then $\operatorname{div}\textbf{u} = \operatorname{div}\left((u_1,u_2,0)\right) = \partial_1u_1 + \partial_2 u_2 = 0$
+
+so that $\partial_1u_1 = - \partial_2 u_2 = \partial_2 (-u_2)$​
+
+Then $\exists$ a function $\psi$, s.t. $u_1 = \partial_2\psi$, $- u_2 = \partial_1\psi$.
+
+Hence
+\begin{equation}
+\xi = \partial_1 u_2- \partial_2 u_1 = - \partial_1\partial_1\psi - \partial_2\partial_2\psi = \nabla^2 \psi= \Delta \psi
+\end{equation}
+called Laplacian.
+
+\subsubsubsection{Example} % H4 title
+
+Consider 2 short fluid line elements $\overline{AB}$ and $\overline{AC}$, which are perpendicular at a certain instant, then the $y$-component of velocity at $B$ exceeds that at $A$​ by 
+\begin{equation}
+u_2(x_1+\delta x_1, x_2, t) - u_2(x_1, x_2, t) \approx \frac{\partial u_2}{\partial x_1} (x_1,x_2,t) \, \delta x.
+\end{equation}
+Hence $\displaystyle \frac{\partial u_2}{\partial x_1}(x_1,x_2,t)$ represents the instaneous angular velocity of the fluid line element $\overline{AB}$ .
+
+Similarly, $\displaystyle \frac{\partial u_1}{\partial x_2}(x_1,x_2,t)$ represents the instaneous angular velocity (clockwise) of the line element $\overline{AC}$, then $\displaystyle \frac{1}{2}\left(\frac{\partial u_2}{\partial x_1} - \frac{\partial u_1}{\partial x_2}\right) = \frac{1}{2} = \xi$, represent average angular velocity of the two short fluid line elements that happen, at that instant, to be mutually perpendicular.
+
+\begin{quote}
+	\textbf{Rmk:}
+Vorticity
+\end{quote}

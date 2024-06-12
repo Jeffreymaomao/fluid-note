@@ -1,0 +1,85 @@
+
+
+\begin{quote}
+	\textbf{Circulation}:
+Then the Circulation of Rankine vortex is
+\begin{equation}
+\Gamma
+= \int_{0}^{2\pi} u_{\theta} (r) r dr
+= 2\pi r \textbf{u}_\theta(r)
+= \begin{cases}
+\pi r^2 \cdot \Omega \text{ for } r \leq a\\
+\pi a^2 \cdot \Omega \text{ for } r > a\\
+\end{cases}
+\end{equation}
+
+
+\end{quote}
+
+
+
+\subsubsection{The vorticity equation} % H3 title
+
+Recall, if the flow is isentropic $\exists w$, s.t.
+\begin{equation}
+\frac{\partial \textbf{u}}{\partial t}
++ \left(\textbf{u}\cdot \nabla \right)\textbf{u}
+= - \frac{\nabla p}{\rho}  = \nabla w
+\end{equation}
+and
+\begin{equation}
+\frac{1}{2}\nabla \left(\lVert \textbf{u}\rVert^2\right) = \textbf{u} \times \left(\nabla\times\textbf{u}\right) + \left(\textbf{u}\cdot \nabla\textbf{u}\right)\textbf{u}
+\end{equation}
+so 
+\begin{equation}
+\frac{\partial \textbf{u}}{\partial t} + \frac{1}{2}\nabla\left(\lVert \textbf{u}\rVert^2\right) - \textbf{u}\times\left(\nabla \times \textbf{u}\right) = \nabla w
+\end{equation}
+Taking the cross and using the properties $\nabla \times \left(\nabla f\right) = 0$ for any function $f$, we get
+\begin{equation}
+\nabla\times\left(
+\frac{\partial \textbf{u}}{\partial t} + \frac{1}{2}\nabla\left(\lVert \textbf{u}\rVert^2\right) - \textbf{u}\times\left(\nabla \times \textbf{u}\right)\right)
+= \nabla\times\left(
+\nabla w
+\right) = 0
+\end{equation}
+then
+\begin{equation}
+\nabla \times \frac{\partial \textbf{u}}{\partial t} - \nabla \times\left(\textbf{u}\times \left(\nabla \times\textbf{u}\right)\right)
+=
+\frac{\partial}{\partial t}\left( \nabla \times \textbf{u}\right) - \nabla \times\left(\textbf{u}\times \left(\nabla \times\textbf{u}\right)\right)
+= 0
+\end{equation}
+since $\xi = \nabla \times \textbf{u}$, we get
+\begin{equation}
+\frac{\partial \xi}{\partial t} - \nabla \times\left(\textbf{u}\times \xi\right)
+= 0
+\end{equation}
+
+
+
+
+
+Let $\textbf{u}=\left(u_1,u_2,0\right)$ in Cartesian coordinate and $\textbf{u} = \left(u_r, u_\theta, u_z\right)$ in cylindrical coordinate, then
+\begin{equation}
+\begin{aligned}
+u_\theta
+&= \textbf{u} \cdot \textbf{T}\\
+&= \left(u_1\textbf{e}_x + u_2\textbf{e}_y\right)\cdot\left(-\frac{y}{r}\textbf{e}_x +\frac{x}{r}\textbf{e}_y\right)\\
+&= \left(\psi_y\textbf{e}_x - \psi_x\textbf{e}_y\right)\cdot\left(-\frac{y}{r}\textbf{e}_x +\frac{x}{r}\textbf{e}_y\right)\\
+&= -\left(\frac{y}{r} \psi_y - \frac{x}{r} \psi_x\right)\\
+&= -\left(\frac{y}{r} \frac{y}{r}\psi_r - \frac{x}{r} \frac{x}{r}\psi_r\right)\\
+&= - \frac{x^2+y^2}{r^2} \psi_r = -\psi_r
+\end{aligned}
+\end{equation}
+
+
+\begin{quote}
+	Notice that $\displaystyle \textbf{T} = -\frac{y}{r}\textbf{e}_x +\frac{x}{r}\textbf{e}_y$ and the $\psi$
+\begin{equation}
+\begin{aligned}
+\psi_y &= \psi_r \frac{\partial r}{\partial y} = \frac{y}{r} \psi_r\\
+\psi_x &= \psi_r \frac{\partial r}{\partial x} = \frac{x}{r} \psi_r\\
+\end{aligned}
+\end{equation}
+
+\end{quote}

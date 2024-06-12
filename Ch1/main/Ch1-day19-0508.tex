@@ -1,0 +1,186 @@
+\subsubsection{Proposition} % H3 title
+
+For isentropic flow (in the absence of external forces) with $\vec{\xi} = \nabla \times \textbf{u}$ and $\textbf{W} = \vec{\xi} /\rho$ we have
+\begin{equation}
+\frac{D\xi}{Dt} - \left(\vec{\xi}\cdot\nabla\right)\textbf{u} + \xi \left(\operatorname{div}\textbf{u}\right) = 0
+\end{equation}
+and
+\begin{equation}
+\frac{D\textbf{W} }{Dt} - \left(\textbf{W} \cdot\nabla\right)\textbf{u} = 0
+\end{equation}
+and
+\begin{equation}
+w\left(\varphi(\textbf{x},t),t\right) = \nabla \varphi_t(\textbf{x}) \cdot \textbf{W} (\textbf{x})
+\end{equation}
+where $\varphi_t$ is the flow map and $\nabla \varphi_t$  is its Jocobian matrix.
+
+\subsubsubsection{Proof $(1)$} % H4 title
+
+\begin{quote}
+	\textbf{Recall :}
+\begin{equation}
+\frac{\partial \textbf{u}}{\partial t} + \textbf{u}\cdot\nabla \textbf{u} = -\frac{\nabla p}{\rho} = \nabla w
+\end{equation}
+and
+\begin{equation}
+\frac{1}{2}\left(\lVert\textbf{u}\rVert^2\right) = \textbf{u}\times\left(\nabla\times\textbf{u}\right) + \left(\textbf{u}\cdot\nabla\right)\textbf{u}
+\end{equation}
+
+\end{quote}
+Taking the cross and using the properties $\nabla \times \left(\nabla f\right) = 0$ for any function $f$, we get
+\begin{equation}
+\nabla\times\left(
+\frac{\partial \textbf{u}}{\partial t} + \frac{1}{2}\nabla\left(\lVert \textbf{u}\rVert^2\right) - \textbf{u}\times\left(\nabla \times \textbf{u}\right)\right)
+= \nabla\times\left(
+\nabla w
+\right) = 0
+\end{equation}
+then
+\begin{equation}
+\nabla \times \frac{\partial \textbf{u}}{\partial t} - \nabla \times\left(\textbf{u}\times \left(\nabla \times\textbf{u}\right)\right)
+=
+\frac{\partial}{\partial t}\left( \nabla \times \textbf{u}\right) - \nabla \times\left(\textbf{u}\times \left(\nabla \times\textbf{u}\right)\right)
+= 0
+\end{equation}
+since $\xi = \nabla \times \textbf{u}$, we get
+\begin{equation}
+\frac{\partial \xi}{\partial t} - \nabla \times\left(\textbf{u}\times \xi\right)
+= 0
+\end{equation}
+
+
+\begin{quote}
+	\textbf{Recall : }
+\begin{equation}
+\begin{aligned}
+\nabla\times\left(\textbf{A}\times \textbf{B}\right)
+&= \textbf{A} \nabla \cdot \textbf{B}
+- \textbf{B}\nabla\cdot \textbf{A}
++ \left(\textbf{B}\cdot\nabla\right)\textbf{A}
+- \left(\textbf{A}\cdot\nabla\right)\textbf{B}\\
+&= \textbf{A} \operatorname{div} \textbf{B}
+- \textbf{B}\operatorname{div} \textbf{A}
++ \left(\textbf{B}\cdot\nabla\right)\textbf{A}
+- \left(\textbf{A}\cdot\nabla\right)\textbf{B}\\
+\end{aligned}
+\end{equation}
+
+\end{quote}
+Then
+\begin{equation}
+\begin{aligned}
+0 &= \frac{\partial \xi}{\partial t} - \nabla \times\left(\textbf{u}\times \xi\right)\\
+&= \frac{\partial \xi}{\partial t}
+- \textbf{u} \operatorname{div} \xi
++ \xi \operatorname{div} \textbf{u}
+- \left(\xi\cdot\nabla\right)\textbf{u}
++ \left(\textbf{u}\cdot\nabla\right)\xi\\
+&= \frac{\partial \xi}{\partial t}
++ \xi \operatorname{div} \textbf{u}
+- \left(\xi\cdot\nabla\right)\textbf{u}
++ \left(\textbf{u}\cdot\nabla\right)\xi
+\end{aligned}
+\end{equation}
+or 
+\begin{equation}
+\frac{D\xi}{Dt} - \left(\xi\cdot\nabla\right)\textbf{u} + \left(\textbf{u}\cdot\nabla\right)\xi = 0
+\end{equation}
+which satiesfy equation $(1)$. 
+
+\subsubsubsection{Proof  $(2)$} % H4 title
+
+
+\begin{equation}
+\begin{aligned}
+\frac{D\textbf{W}}{Dt}
+&= \frac{D}{Dt}\left(\frac{\xi}{\rho}\right)\\
+&= \left(\frac{\xi_t}{\rho} - \frac{\xi}{\rho^2}\rho_t\right)
++ \left(\frac{\textbf{u}\cdot\nabla \xi}{\rho}
+- \frac{\xi\left(\textbf{u}\cdot\nabla \rho\right)}{\rho} \right)\\
+&= \frac{1}{\rho} \frac{D\xi}{Dt} - \frac{\xi}{\rho^2}\left(\rho_t + \textbf{u}\cdot\nabla\rho\right)\\
+&= \frac{1}{\rho} \frac{D\xi}{Dt} - \frac{\xi}{\rho^2}\left(\rho_t + \operatorname{div}(\textbf{u}\rho) - \rho\operatorname{div}\textbf{u} \right)\\
+&=\frac{1}{\rho} \frac{D\xi}{Dt} + \frac{\xi}{\rho}\operatorname{div}\textbf{u}\\
+&= \frac{1}{\rho}\left(\xi\cdot\nabla\right)\textbf{u} - \frac{\xi}{\rho}\left(\operatorname{div}\textbf{u}\right) + \frac{\xi}{\rho}\left(\operatorname{div}\textbf{u}\right)\\
+&= \frac{1}{\rho}\left(\xi\cdot\nabla\right)\textbf{u}
+\end{aligned}
+\end{equation}
+
+which satiesfy equation $(2)$.
+
+\subsubsubsection{Proof  $(3)$} % H4 title
+
+Let $F(\textbf{x},t) = w(\varphi(\textbf{x},t),t)$ and $G(\textbf{x},t) = \nabla \varphi_t(\textbf{x})\cdot\textbf{W}(\textbf{x},0)$, by equation $(2)$ 
+\begin{equation}
+\frac{\partial F}{\partial t} = \frac{D\textbf{W}}{Dt} = \left(\textbf{W}\cdot\nabla\right)\textbf{u} = \left(F\cdot\nabla\right)\textbf{u}
+\end{equation}
+On the other hand,
+\begin{equation}
+\begin{aligned}
+\frac{\partial G}{\partial t}
+&= \frac{\partial }{\partial t}\left(\nabla \varphi_t(\textbf{x})\cdot\textbf{W}(\textbf{x},0)\right) \\
+&= \nabla \left(\frac{\partial \varphi_t(\textbf{x})}{\partial t}\right) \cdot \textbf{W}(\textbf{x},0)\\
+&= \nabla \left(\textbf{u}\left(\varphi(\textbf{x},t),t\right)\right)\cdot\textbf{W}(\textbf{x},0)\\
+&= \nabla \textbf{u} \cdot \nabla \varphi_t(\textbf{x}) \cdot \textbf{W}(\textbf{x},0)\\
+&= \left(G\cdot\nabla\right)\cdot \textbf{u}
+\end{aligned}
+\end{equation}
+Thus $F$ and $G$ satisfies the same ODE system and 
+\begin{equation}
+F(\textbf{x},0) = G(\textbf{x},0) = \textbf{W}(\textbf{x},0)
+\end{equation}
+
+
+\begin{quote}
+	\textbf{Recall :}
+The flow map is given by
+\begin{equation}
+\begin{cases} \displaystyle
+\frac{\partial}{\partial t} \varphi (\textbf{x},t) = \textbf{u}\left(\varphi(\textbf{x},t),t\right) & t>0\\
+\varphi(\textbf{x},0)=\textbf{x} & x\in D
+\end{cases}
+\end{equation}
+
+\end{quote}
+Hence, by uniqueness of ODE, $F = G$ or $w\left(\varphi(\textbf{x},t),t\right) = \nabla \varphi_t(\textbf{x}) \cdot \textbf{W} (\textbf{x})$
+
+\subsubsubsection{Some properties of vortisity} % H4 title
+
+\begin{enumerate}
+	\item If $\xi(\textbf{x},0) = 0$, then $\xi(\textbf{x},t) = 0$ satiesfies $(1)$ if uniqueness applied. Hence the flow that start off irrotational reamin irrotational $\forall t>0$.
+
+\begin{equation}
+\frac{D\xi}{Dt} - \left(\xi\cdot\nabla\right)\textbf{u} + \xi \left(\operatorname{div}\textbf{u}\right) = 0
+\end{equation}
+
+\end{enumerate}
+\begin{enumerate}
+	\item For $2$-dimensional flow $\textbf{u} = (u,v,0)$ and $\xi = (0,0,\xi)$, we have $\xi = \partial_x v - \partial_y u$ and the circulation theroem and Stoke's theorem implies that, if $\Sigma_t = \varphi_t(\Sigma)$ and $\Sigma$ is a region in the fluid and $\varphi_t$ is the flow map, then
+
+\begin{equation}
+\int_{\Sigma_t} \xi dA = \int_{\partial \Sigma_t} \textbf{u}\cdot d\textbf{x} = \text{constant}
+\end{equation}
+    in time. Moreover
+\begin{equation}
+\left(\textbf{w}\cdot \nabla\right)\textbf{u} = (0,0,\xi/\rho)\cdot \nabla(u,v,0)
+= (0,0,\xi) \cdot (\partial_x u, \partial_y,0 ) = 0
+\end{equation}
+    so that, by equation $(2)$
+\begin{equation}
+\frac{DW}{Dt} = 0
+\end{equation}
+    then $\xi/\rho$ is a constant $\forall t>0$.
+
+\end{enumerate}
+\subsubsection{Definition} % H3 title
+
+A force $\textbf{b}$ in a region is said to be conserve if $\exists$ a function $f$, s.t.
+\begin{equation}
+\textbf{b} = -\nabla f
+\end{equation}
+e.g. the gravitaional force $g$ is conservative.
+
+\begin{quote}
+	\textbf{Rmk :}
+For a fluid with conservative external force and constant
+\end{quote}
+

@@ -30,5 +30,29 @@
 - Chapter 1 - [[download](https://raw.githubusercontent.com/Jeffreymaomao/fluid-note/main/Ch1/main/main.pdf)] [[preview](https://github.com/Jeffreymaomao/fluid-note/blob/main/Ch1/main/main.pdf)]
 - Levi-Cevita symbols [[download](https://raw.githubusercontent.com/Jeffreymaomao/fluid-note/main/Levi-Civita/Levi-Civita.pdf)] [[preview](https://github.com/Jeffreymaomao/fluid-note/blob/main/Levi-Civita/Levi-Civita.pdf)]
 
+## Test
 
-
+> Test 1
+>
+> 1. What is stationary ? ($\partial \textbf{u}/\partial t = 0$)
+> 2. What is isentropic ? ($\exists w$ called enthalpy, s.t. $\nabla w =\nabla p/\rho$)
+> 3. What is irrotational ? ($\nabla \times \textbf{u} = 0 $)
+>
+> Test 2
+>
+> 1. What is incompressible
+>
+> Test 3 
+>
+> 1. What is homogeneous ?  ($\rho = \rho_0$ in $D$)
+>
+> Test4 
+>
+> 1. What is Circulation theorem
+>
+> Final 
+>
+> 1. Dereviation of Euler-equation
+> 2. proof: Incompressible $\Leftrightarrow$ $\operatorname{div} \textbf{u} = 0$
+> 3. proof: helmholtz-hodge decomposition theorem
+> 4. statement and proof: Kelvin's circulation theorem

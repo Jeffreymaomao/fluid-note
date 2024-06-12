@@ -1,0 +1,119 @@
+\subsubsection{Definition} % H3 title
+
+An ideal fluid is one with the following properties:
+
+\begin{enumerate}
+	\item It is incompressible.
+	\item The density $\rho$ is a constant $\forall x$ and $\forall t>0$.
+	\item The force exerterd across a geometrical surface element $\delta S$ with unit normal $\vec{n}$ within the fluid is $p\vec{n}\delta S$ where $p=p(x,t,z,t)$ is the pressure of the fluid.
+
+\end{enumerate}
+\begin{quote}
+	\textbf{Rmk : }
+Am ideal fluid is an isentropic fluid with $w = p/\rho$.
+\end{quote}
+
+\subsubsection{Kelvin's Circulation Theorem} % H3 title
+
+Let $C$ be a simple closed curve lying in the fluid region of an isentropic flow without external foces.
+
+Let $C_t = \varphi_t(C)$ where $\varphi_t$ is the fluid flow map, i.e. $\varphi_t(\textbf{x}) = \varphi(\textbf{x},t)$ satisfies
+\begin{equation}
+\begin{cases}
+\displaystyle \frac{\partial}{\partial t} \varphi(\textbf{x},t)
+= \textbf{u}(\varphi(\textbf{x},t))\\
+\varphi(\textbf{x},0) = \textbf{x},\quad \forall x\in D,\quad t>0.
+\end{cases}
+\end{equation}
+Then the circulation around $C_t$: 
+\begin{equation}
+\Gamma_{C_t} = \oint_{C_{t}} \textbf{u}\cdot d\textbf{x}
+\end{equation}
+is a constant independent of time $t>0$.
+
+\begin{quote}
+	\textbf{Rmk :}
+Consider Stokes' theorem,
+\begin{equation}
+\Gamma_{C_t} = \oint_{\partial \Sigma}\textbf{u}\cdot d\textbf{l}
+= \iint_{\Sigma} (\nabla\times\textbf{u}) \cdot d\Sigma
+= \int_{\Sigma} \Omega \cdot d\Sigma.
+\end{equation}
+Also,
+\begin{equation}
+\abs{\Omega} = \abs{\nabla\times\textbf{u}}
+= \lim_{\delta A \to 0}\frac{1}{\abs{A}} \abs{\oint_{C} \textbf{u}\cdot d\textbf{r}}= \frac{\abs{\textbf{u}}(2\pi r)}{\pi r^2} = 2 r\abs{u} = 2\omega
+\end{equation}
+So if $\Omega = 2\omega$ is a constant, we have
+\begin{equation}
+\Gamma_{C_t} = \int_{\Sigma} 2\omega d\Sigma = 2\omega A
+\end{equation}
+
+\end{quote}
+\subsubsubsection{proof:} % H4 title
+
+Let $\textbf{X}(s)$ be a parametrization of the curve $C$, $0\leq s\leq 1$.
+
+Then the parametrization of $C_{t} = \varphi_{t}(C)$ is $\varphi(\textbf{X}(s),t)$, $0\leq s\leq 1$.
+
+So,
+\begin{equation}
+\begin{aligned}
+\frac{d}{dt} \int_{C_{t}} \textbf{u}\cdot d\textbf{x}
+&= \frac{d}{dt} \int_{0}^{1} \textbf{u}\left(\varphi(\textbf{X}(s),t)\right) \frac{\partial \varphi(\textbf{X}(s),t)}{\partial s} ds\\
+&= \int_{0}^{1} \frac{d\textbf{u}\left(\varphi(\textbf{X}(s),t)\right)}{dt} \frac{\partial \varphi(\textbf{X}(s),t)}{\partial s}ds
++ \int_{0}^{1} \textbf{u}(\textbf{X}(s),t) \frac{\partial^2}{\partial t\partial s}\left(\varphi(\textbf{X}(s),t)\right) ds\\
+&= I_1 + I_2
+\end{aligned}
+\end{equation}
+Consider the second term:
+
+
+
+\begin{equation}
+\begin{aligned}
+I_2
+&= \int_{0}^{1} \textbf{u}(\textbf{X}(s),t) \frac{\partial^2}{\partial t\partial s}\left(\varphi(\textbf{X}(s),t)\right) ds\\
+&= \int_{0}^{1} \textbf{u}(\textbf{X}(s),t) \frac{\partial}{\partial s }\left(\frac{\partial}{\partial t}\varphi(\textbf{X}(s),t)\right) ds\\
+&= \int_{0}^{1} \textbf{u}(\textbf{X}(s),t) \frac{\partial \textbf{u}(\textbf{X}(s),t)}{\partial s } ds\\
+&= \int_{0}^{1} \frac{1}{2}\frac{\partial}{\partial s}\lVert\textbf{u}(\textbf{X}(s),t)\rVert^2ds\\
+&=  \frac{1}{2}\lVert\textbf{u}(\textbf{X}(s),t)\rVert^2\bigg|_{0}^{1}\\
+&= 0\quad\text{(Since it is a closed curve.)}
+\end{aligned}
+\end{equation}
+For the first term we have
+\begin{equation}
+\begin{aligned}
+I_1 = \int_{0}^{1} \frac{d\textbf{u}\left(\varphi(\textbf{X}(s),t)\right)}{dt} \frac{\partial \varphi(\textbf{X}(s),t)}{\partial s}ds
+= \int_{0}^{1} \frac{D\textbf{u}\left(\varphi(\textbf{X}(s),t)\right)}{Dt} \frac{\partial \varphi(\textbf{X}(s),t)}{\partial s}ds
+\end{aligned}
+\end{equation}
+Since the flow is isentropic $\displaystyle \frac{D\textbf{u}}{Dt} = -\nabla w$.
+\begin{equation}
+\begin{aligned}
+\frac{d}{dt} \int_{C_{t}} \textbf{u}\cdot d\textbf{x} &= I_1 + I_2 \\
+&= \int_{0}^{1} \frac{D\textbf{u}\left(\varphi(\textbf{X}(s),t)\right)}{Dt} \frac{\partial \varphi(\textbf{X}(s),t)}{\partial s}ds+0\\
+&= - \int_{0}^{1} \nabla w \left(\varphi(\textbf{X}(s),t)\right) \frac{\partial \varphi(\textbf{X}(s),t)}{\partial s}ds\\
+&= - \int_{0}^{1} \frac{\partial w}{\partial s} ds = 0
+\end{aligned}
+\end{equation}
+That is $\displaystyle \Gamma_{C_t} = \frac{d}{dt} \int_{C_{t}} \textbf{u}\cdot d\textbf{x}$ is a constant $\forall t>0$.
+
+\subsubsection{Corollary} % H3 title
+
+For osentropic flow with no external force, the flux of vorticity across a surface moving with the fluid is a constant in time.
+
+\subsubsubsection{proof} % H4 title
+
+Suppose $S$ is a surface in the fluid whose boundary is a oriented closed then by Stoke's theorem and the Kelvin circulation theorem
+\begin{equation}
+\oint_{C_t} \textbf{u} \cdot d\textbf{x} = \iint_{S_t} \left(\nabla \times \textbf{u}\right)\cdot \textbf{n}d\sigma = \iint_{S_t} \xi \cdot \textbf{n}d\sigma
+\end{equation}
+is a constant $\forall t\geq 0$.
+
+where $C_{t} = \varphi_t(C)$, $S_{t} = \varphi_t(S)$, and thevorticity  $\xi = \nabla \times \textbf{u}$.
+
+\subsubsection{Definition} % H3 title
+
+An irrotational flow is one for 
+

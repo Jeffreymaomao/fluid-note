@@ -1,0 +1,101 @@
+\subsubsubsection{Example} % H4 title
+
+Consider the line votex in cylinderical polar coordinate $(r,\theta,z)$ by
+\begin{equation}
+\textbf{u}\left(r,\theta,z\right) = \left(0,\frac{k}{r},0\right) = \frac{k}{r} \textbf{e}_{\theta}
+\end{equation}
+where $\textbf{u}$ is the velocity vector field field and the basis 
+\begin{equation}
+\textbf{e}_r = \left(1,0,0\right),\quad
+\textbf{e}_\theta = \left(0,1,0\right),\quad
+\textbf{e}_z = \left(0,0,1\right).
+\end{equation}
+The vorticity in cylindrical coordinate given 
+\begin{equation}
+\nabla \times \textbf{u} = \frac{1}{r}\begin{vmatrix}
+\textbf{e}_r & \textbf{e}_r & \textbf{e}_z \\
+\partial_r & \partial_\theta & \partial_z\\
+u_r & u_\theta & u_z
+\end{vmatrix}
+= \begin{vmatrix}
+\textbf{e}_r & \textbf{e}_r & \textbf{e}_z \\
+\partial_r & \partial_\theta & \partial_z\\
+0 & k & 0
+\end{vmatrix} = 0
+\end{equation}
+Hence, the vorticity is zero $\forall r\neq 0$, thus although the fluid is rotating in global sence, the flow is irrotational. 
+
+\begin{quote}
+	Note that consider $z$ momentarily $\perp$ fluid line elements $\overline{AB}$  and $\overline{AC}$ at $\theta=0$.
+$\overline{AC}$ is rotating in an anticlockwise sense, it will continue to line along the circular streamline as time preceeds.
+\end{quote}
+
+On the other hands, since $u_\theta$ is a decreasing function of $r>0$, $\overline{AB}$ is rotating clockwide so that $\overline{AB}$ has the equal and 
+
+\subsubsection{The Rankine vortex} % H3 title
+
+Consider a axisymmetric flow $\textbf{u} = (u_1,u_2,0)$ with vorticity 
+\begin{equation}
+\xi = \begin{cases}
+\Omega & \text{for } r\leq a\\
+0 & \text{for } r> a\\
+\end{cases},\quad r = \sqrt{x^2 + y^2}
+\end{equation}
+which is incompressible. By the previous result $\exists$ a function s.t. $u=\psi_y$, $v=\varphi_x$ and 
+\begin{equation}
+-\nabla \psi = \xi
+= \begin{cases}
+\Omega & \text{for } r\leq a\\
+0 & \text{for } r>a
+\end{cases}
+\end{equation}
+Assume $\psi = \psi (r)$, Thus, 
+\begin{equation}
+\nabla \psi = \frac{\partial^2 \psi(r)}{\partial r^2} + \frac{1}{r} \frac{\partial \psi}{\partial r}
+= \frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial \psi}{\partial r}\right)
+\end{equation}
+For $r\leq a$, 
+\begin{equation}
+\xi = \frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial \psi}{\partial r}\right) = -\Omega
+\quad\Rightarrow\quad
+\frac{\partial}{\partial r}\left(r\frac{\partial \psi}{\partial r}\right) = -r\Omega
+\quad\Rightarrow\quad
+r \frac{\partial \psi}{\partial r} = -\frac{\Omega r^2}{2} + C_1
+\end{equation}
+where $C_1$ is a constant, last we have
+\begin{equation}
+\frac{\partial \psi}{\partial r} = - \frac{\Omega r}{2} + \frac{C_1}{r}
+\end{equation}
+Suppose $\psi'(r)$ is bounded at $r=0$, so that $C_1 = 0$.
+\begin{equation}
+\psi(r) = -\frac{\Omega r^2}{4},\quad r\leq a
+\end{equation}
+For $r>a$,
+\begin{equation}
+\xi = \frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial \psi}{\partial r}\right) = 0
+\quad\Rightarrow\quad
+\frac{\partial}{\partial r}\left(r\frac{\partial \psi}{\partial r}\right) = 0
+\quad\Rightarrow\quad
+r \frac{\partial \psi}{\partial r} = C_2
+\end{equation}
+then
+\begin{equation}
+\frac{\partial \psi}{\partial r} = \frac{C_2}{r}
+\quad\Rightarrow\quad
+\psi = C_2 \ln r + C_3
+\end{equation}
+Suppose $\psi'(r)$ is bounded at $r\to \infty$, so that $C_2 = 0$, and $\psi(a) = \psi(a^{+}) = \psi(a^{-})$ so that 
+\begin{equation}
+\psi(r) = -\frac{\Omega a^2}{4} ,\quad r>a
+\end{equation}
+In conclude
+\begin{equation}
+\psi(r) =
+\begin{cases}
+\displaystyle -\frac{\Omega r^2}{4}& r\leq a\\
+\displaystyle -\frac{\Omega a^2}{4}& r > a
+\end{cases}
+\end{equation}
+
+
+

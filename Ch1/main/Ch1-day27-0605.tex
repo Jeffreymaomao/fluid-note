@@ -1,0 +1,47 @@
+\subsubsubsection{Claim} % H4 title
+
+$\mathbb{R}\backslash B_1(0)$ is a simply connected
+
+\paragraph{Proof} % H5 title
+
+Let $C\subset \mathbb{R}^3\backslash B_1(0)$ be a simple closed curve in $\mathbb{R}^3\backslash B_1(0)$. Consider the map
+\begin{equation}
+H : C\times [0,1]\to S^2 = \{x\in\mathbb{R}^3,\lVert x\rVert = 1\}
+\end{equation}
+be given by
+\begin{equation}
+\begin{aligned}
+H(x,\lambda) &= \left(r\lambda + (1-\lambda)\right)\sigma,\quad x=r\sigma, r>0, \sigma \in S^2\\
+H(x,1) &= r\sigma = x\\
+H(x,0) &= \sigma \in S^2
+\end{aligned}
+\end{equation}
+Then the curve $C$ is homoptic to the curve $C_1 : H(r\sigma,0)=\sigma$ on $S^2$, where $r\sigma \in C$, $\sigma \in S^2$.
+
+Pick a point $x_0\in S^2\backslash C_1$, By stereographic projection $P$ with north pole at $x_0$. $S^2\backslash \{x_0\}$ is a homeomorphic to $\mathbb{R}^2$ and $\widetilde{C}_1 = P(C_1)$ is closed curve in $\mathbb{R}^2$, Let $H_1 : \widetilde{C}_1 \times [0,1] \to \mathbb{R}^2$ be given by $H_1(y,\lambda) = y\lambda$. Then
+\begin{equation}
+\begin{aligned}
+H_1 (y,1) = y\lambda ,\quad \forall y \in \widetilde{C}_1\\
+H_1 (y,0) = 0,\quad \forall y \in \widetilde{C}_1
+\end{aligned}
+\end{equation}
+so $\widetilde{C}_1$ is homotopic to $(0,0)$ $\Rightarrow$ $C_1$ is homotpic to the point $x_1 = P^{-1}(0,0)$ $\Rightarrow$ $C\sim C_1 \leadsto x_1$
+
+\begin{quote}
+	\textbf{Reference:} \textit{Algebaric topology}, Allen Hatcher
+\end{quote}
+
+\subsubsection{Proposition} % H3 title
+
+For irrotational flow in a simply connect region there exist a function $\varphi(x,t)$ on $D\times [0,\infty]$ called the 
+\begin{equation}
+\nabla \varphi = \vec{u} = (u,v,w)
+\end{equation}
+
+
+\subsubsubsection{proof} % H4 title
+
+Since $D$ is simply connected, $D$ is path connected and for ant two point $a,b\in D$. $\exists$ a picewise differentable curve $\gamma : [0,1] \to D$, s.t. $\gamma(0) = a$ and $\gamma(1) = b$.
+
+Fix $a_{0} \in D$, for any point
+

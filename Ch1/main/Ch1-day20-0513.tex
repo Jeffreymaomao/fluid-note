@@ -1,0 +1,72 @@
+\subsubsection{Helmholt's theorem} % H3 title
+
+Suppose the fluid is isentropic with no external firce or the force is conservative.
+
+\begin{enumerate}
+	\item If $C_1$ and $C_2$ are any two curves encircling the vortex tube, then
+
+\begin{equation}
+\int_{C_1} \textbf{u} \cdot d\textbf{x} = \int_{C_2} \textbf{u} \cdot d\textbf{x}.
+\end{equation}
+    The common value is called the strength of the vortex tube.
+
+\end{enumerate}
+\begin{enumerate}
+	\item The strength of the vortex tube is constant in time as the tube move with the fluid.
+
+\end{enumerate}
+\subsubsubsection{proof} % H4 title
+
+\begin{enumerate}
+	\item We first define a vortex surface (sheet) as a surface s.t. the vorticity vector $\xi = \nabla\times\textbf{u}$ us tangent to the surface at every point of the surface.
+
+\end{enumerate}
+    Let $C_1$ and $C_2$ be oriented as above. The lateral surface of the vortex tube  anclosed between $C_1$ and $C_2$ is denoted by $S$ and the end faces with boundary $C_1$ and $C_2$ are denoted by $S_1$ and $S_2$ respectively.
+
+    Since $\xi$ is tangent to $S$, where $S$ is the vortex sheet. Let $V$ denote the region of vortex tube between $S_1$ and $S_2$,
+\begin{equation}
+\begin{aligned}
+0 &= \int_{V}(\operatorname{div}\xi)d\textbf{x}\\
+&= \int_{S_1\cup S_2\cup S_3} \xi\cdot\textbf{n}d\sigma\\
+&= \int_{S_1}\xi\cdot\textbf{n}d\sigma
++ \int_{S_2}\xi\cdot\textbf{n}d\sigma
++ \int_{S_3}\xi\cdot\textbf{n}d\sigma\\
+&= \int_{C_1}\textbf{u}\cdot d\textbf{x}
+- \int_{C_2}\textbf{u}\cdot d\textbf{x}
++ 0\\
+\end{aligned}
+\end{equation}
+    So, we have 
+\begin{equation}
+\int_{C_1} \textbf{u} \cdot d\textbf{x} = \int_{C_2} \textbf{u} \cdot d\textbf{x}.
+\end{equation}
+
+
+\begin{enumerate}
+	\item By Kelvin's circulation theorem.
+
+\end{enumerate}
+\subsubsection{Theorem} % H3 title
+
+Suppose the fluid is isentropic with no external forces or external force are conservative, then
+
+\begin{enumerate}
+	\item The fluid element that lie on a vetex line at some instant continue to lie on a vortex line, i.e. if $L$ is a vortex line, then $\varphi_t(L)$ is a vortex line $\forall t>0$, which $\varphi_t$ is the flow map.
+	\item If $V$ is a vortex tube, then $\varphi_t$ is a vortex tube $\forall t>0$.
+
+\end{enumerate}
+\subsubsubsection{Proof} % H4 title
+
+(Sketch) Let $L$ be a vortex line at $t=0$, the one can show that $L$ is the intersection of $2$ vortex ($S_1$ and $S_2$ say).Let $S_{*}\subset S_1$ be a region on $S_2$ and let $C=\partial S_{*}$ which is the boundary of $S_{*}$. So, $\xi\cdot\textbf{n} = 0$ on $S_{*}$, where $\xi=\nabla\times\textbf{u}$.
+
+Then by Stoke's theorem 
+\begin{equation}
+\int_{C} \textbf{u}\cdot d\textbf{x} = \int_{S^{*}} \textbf{w}\cdot\textbf{n}d\sigma = 0
+\end{equation}
+By Kelvin Circulation theorem and Stoke's theorem,
+\begin{equation}
+\int_{\varphi_t(S_*)} \textbf{w}\cdot \textbf{n}d\sigma =
+\int_{\varphi_t(S_*)} \textbf{u}\cdot d\textbf{x} = 0,\quad \forall t>0,\quad S^{*} \subset S_1.
+\end{equation}
+
+

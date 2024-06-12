@@ -1,0 +1,131 @@
+\subsubsection{Properties of 2-dim vorticity equation} % H3 title
+
+Consider 2-dim homogeneous incompressible flow in $D$, $\operatorname{div}\textbf{u} = 0$
+\begin{equation}
+\textbf{u} = (u(x,y,t), v(x,y,t), 0)
+\end{equation}
+then
+\begin{equation}
+\frac{D\xi}{Dt} - \left(\zeta\cdot\nabla\right)\textbf{u} + \zeta \cdot \operatorname{div} \textbf{u} = 0
+\quad\Rightarrow\quad
+\frac{D\xi}{Dt} - \left(\zeta\cdot\nabla\right)\textbf{u} = 0
+\end{equation}
+where
+\begin{equation}
+\zeta = \nabla \times \textbf{u} = (0,0,\partial_x v - \partial_y u) = (0,0,\xi)
+\end{equation}
+now 
+\begin{equation}
+\left(\xi\cdot\nabla\right)\textbf{u} = \xi\partial_{z}(u,v,0) = 0
+\end{equation}
+so we have
+\begin{equation}
+\frac{D\xi}{Dt} = 0
+\quad\Leftrightarrow\quad
+\frac{\partial \xi}{\partial t} + (\textbf{u}\cdot \nabla)\xi = 0
+\end{equation}
+Suppose the flow is contained in some region $D$ with a fixed boundary $\partial D$ with boundary condition $\textbf{u}\cdot\textbf{n} = 0$ in $\partial D$.
+
+Now $\operatorname{div} \textbf{u} = 0 \quad\Leftrightarrow\quad u_x + u_y = 0$
+
+Then for $t>0$ $\exists$ a function on $D$, s.t . $u=\partial_y \psi$ and $v = -\partial_x \psi$ then function $\psi$ is the stream function for fixed $t>0$.
+
+
+
+streamline lies on level curve of $\psi$​, i.e. 
+
+suppose $(x(s),y(s))$, $s\in I=[a,b]$, is a streamline, so that
+\begin{equation}
+\frac{d}{ds}\psi(x(s),y(s),0) = \frac{\partial \psi}{\partial x} \frac{dx}{ds} + \frac{\partial \psi}{\partial y} \frac{dy}{ds} = -vu + uv = 0
+\end{equation}
+then
+\begin{equation}
+\psi(x(s),y(s),t) = \text{constant}
+\end{equation}
+on streamline $\forall s$.
+
+Suppose $\textbf{t} = (t_1,t_2)$ is a unit tangent vector on $\partial D$, then $-\textbf{n} = (-t_2,t_1)$ or $\textbf{n}=(t_2,-t_1)$ is the outer normal  on $\partial D$. So, $\textbf{t}\cdot\textbf{n} = 0$ on $\partial D$, that is 
+\begin{equation}
+\begin{aligned}
+& (u,v) \cdot (t_2, -t_1) = 0 \quad\text{on $\partial D$,}\\
+\Rightarrow\quad
+& (\partial_y \psi, - \partial_x \psi)\cdot (t_2, -t_1) = 0\\
+\Rightarrow\quad
+& t_2\partial_y \psi +  t_1\partial_x\psi=0\\
+\Rightarrow\quad
+& \frac{d}{ds}\psi(x(s),y(s),t) = 0\\
+\Rightarrow\quad
+& \psi(x(s),y(s),t)=C_1 \text{ is a constant on $\partial D$}.
+\end{aligned}
+\end{equation}
+WLOG, May take $\psi(x(s),y(s),t)=0$ on $\partial D$, Also
+\begin{equation}
+\xi = \partial_x v - \partial_y u = -\partial^2_x\psi-\partial^2_y\psi
+= -\nabla^2 \psi= -\Delta \psi
+\end{equation}
+The equation for $\xi$  for 2-dim, incompressible flow is 
+\begin{equation}
+\begin{cases}
+\displaystyle \frac{D\xi}{Dt} = \frac{\partial \xi}{\partial t} + \left(\textbf{u}\cdot\nabla\right)\xi = 0\\
+\displaystyle \nabla^2 \xi = \Delta \xi = 0\\
+\displaystyle \psi\bigg|_{\partial D} = 0
+\end{cases},\quad\text{with $\textbf{u}=(u,v,0)=(\partial_y\psi, -\partial_x\psi,0)$}
+\end{equation}
+
+
+\begin{quote}
+	\textbf{Note :}
+\begin{equation}
+\begin{aligned}
+\left(\textbf{u} \cdot \nabla\right)
+&= u\partial_x \xi + v\partial_u \xi\\
+&= \partial_y \psi \partial_x\xi + \partial_x \psi \partial_u \xi\\
+&= \begin{pmatrix}\partial_x\xi & \partial_y \psi\\ \partial_x \psi & \partial_u \xi\end{pmatrix}\\
+&= J(\xi,\psi) =\text{Jocobian of $\xi$ and $\psi$}
+\end{aligned}
+\end{equation}
+we habe
+\begin{equation}
+\frac{\partial \xi}{\partial t} + J(\xi,\psi) = 0
+\end{equation}
+
+\end{quote}
+\subsubsubsection{Example} % H4 title
+
+Suppose, at $t=0$, the stream function $\psi(x,y) = \psi(r)$ is a function of radius $r=\sqrt{x^2+y^2}$ with $\partial_r \psi\neq 0$,then
+\begin{equation}
+\begin{aligned}
+u &= \partial_y \psi = \frac{\partial \psi}{\partial r} \frac{\partial r}{\partial y} = \frac{y}{r}\psi_{r}\\
+v &= \partial_x \psi = \frac{\partial \psi}{\partial r} \frac{\partial r}{\partial x} = -\frac{x}{r}\psi_{r}
+\end{aligned}
+\end{equation}
+unit tangent vector to cirlce at $(x,y) = (y/r, -x/r)$.
+
+Notice that $\textbf{u}=(u,v)$ is tangent to the circle of radius $r$ with magnitude $\sqrt{u^2+v^2} = |\psi_r|$ and oriented clockwise of $\psi_r>0$ and anti-clockwise if $\psi_r < 0$.
+
+Next, observe that 
+\begin{equation}
+\xi = -\Delta \psi = \left(\partial^2_{r} \psi + \frac{1}{r}\psi_{r}\right) = \frac{-1}{r}\partial_{r}(r\psi)
+\end{equation}
+is a function of $r>0$ alone.
+
+Since $\psi_r\neq 0$, by the inverse function theorem, $r$ is a function of $\psi$, Here $\xi = \xi(r)$ is a function $\psi$ 
+\begin{equation}
+\xi = F(\psi)
+\quad\Rightarrow\quad
+\xi_{x} = F_{\psi}\psi_{x}, \xi_{y} = F_{\psi}\psi_{y}
+\end{equation}
+then
+\begin{equation}
+J(\xi,\psi) = \begin{pmatrix}\partial_x\xi & \partial_y \psi\\ \partial_x \psi & \partial_u \xi\end{pmatrix} =
+\begin{pmatrix}
+F_{\psi}\xi_x & F_{\psi}\xi_y\\
+\partial_x \psi & \partial_u \xi
+\end{pmatrix} = 0
+\end{equation}
+so that 
+\begin{equation}
+(\textbf{u}\cdot\nabla)\xi = J(\xi,\psi) = 0
+\end{equation}
+
+

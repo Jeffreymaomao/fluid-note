@@ -1,0 +1,185 @@
+
+% Sets the document class and font size
+\documentclass[12pt]{article}
+\usepackage[a4paper, left=1in, right=1in, top=0.8in, bottom=0.9in]{geometry}
+\let\mathbbalt\mathbb
+\usepackage[utf8]{inputenc}    % Input encoding
+\usepackage[T1]{fontenc}       % Font encoding
+\usepackage{fontspec}          % font encoding
+
+
+
+% Advanced math typesetting
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{physics}
+
+
+% Symbols and Text
+\usepackage{bbold}     % bold font
+\usepackage{ulem}      % strikethrough
+\usepackage{listings}  % Source code listing
+\usepackage{import}    % Importing code and other documents
+
+% graphics
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{tcolorbox}
+%\usepackage{changepage}
+
+% figure
+\usepackage{float}
+\usepackage{subfigure}
+
+\usepackage{hyperref}  % Hyperlinks in the document
+\hypersetup{
+    colorlinks=true,
+    linkcolor=Blue,
+    filecolor=red,
+    urlcolor=Blue,
+    citecolor=blue,
+    pdftitle={Article},
+    pdfauthor={Author},
+}
+
+\usepackage{xeCJK}               % Chinese, Japanese, and Korean characters
+\setCJKfamilyfont{kai}{標楷體}    % Chinese font
+
+\usepackage{subfiles}  % Best loaded last in the preamble
+\usepackage{titlesec}  % fortitle
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{
+    \@startsection{paragraph}{5}{\z@}{3.25ex\@plus1ex\@minus.2ex}{-1em}{\normalfont\normalsize\bfseries}
+}
+\renewcommand\subparagraph{
+    \@startsection{subparagraph}{6}{\parindent}{3.25ex\@plus1ex\@minus.2ex}{-1em}{\normalfont\normalsize\bfseries}
+}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\title{Note: Vector Calculus}
+\date{\today}
+\author{Chang-Mao Yang 楊長茂}
+
+\begin{document}
+%================================================================================================
+\maketitle
+
+\subsection{coordinate convention}
+\begin{figure}[htp]
+\subfile{img/coordinate.tex}
+\end{figure}
+
+
+
+\subsection{unit vector(basis) transformation}
+\begin{table}[htp]
+\caption{Basis Transformation}
+
+\begin{center}
+\makebox[\textwidth]{
+\begin{tabular}{c|c|c|c}
+ 	& Cartesian & Cylindrical & Spherical\\\hline 
+\raisebox{-1.85em}{\rotatebox{90}{ Cartesian }}
+& $\begin{aligned}
+	\hat{e}_{x} &= \hat{e}_{x} \\
+	\hat{e}_{y} &= \hat{e}_{y} \\ 
+	\hat{e}_{z} &= \hat{e}_{z}
+	\end{aligned}$
+& $\begin{aligned}
+	\hat{e}_{x} &= \cos\theta \,\hat{e}_{r} - \sin\theta \,\hat{e}_{\theta} \\
+	\hat{e}_{y} &= \sin\theta \,\hat{e}_{r} + \cos\theta \,\hat{e}_{\theta} \\ 
+	\hat{e}_{z} &= \hat{e}_{z}
+	\end{aligned}$
+& $\begin{aligned}
+	\hat{e}_{x} &= \sin\theta\cos\varphi\,\hat{e}_{r} 
+					+ \cos\theta\cos\varphi\,\hat{e}_{\theta} 
+					- \sin\varphi\,\hat{e}_{\phi}\\
+	\hat{e}_{y} &= \sin\theta\sin\varphi\,\hat{e}_{r} 
+					+ \cos\theta\sin\varphi\,\hat{e}_{\theta} 
+					+ \cos\varphi\,\hat{e}_{\phi}\\ 
+	\hat{e}_{z} &= \cos\theta\,\hat{e}_{r} - \sin\theta\,\hat{e}_{\theta}
+	\end{aligned}$
+\\\hline
+\raisebox{-2.15em}{\rotatebox{90}{Cylindrical}}
+& $\begin{aligned}
+	\hat{e}_{r} &= \frac{x\hat{e}_x + y\hat{e}_y}{\sqrt{x^2+y^2}} \\
+	\hat{e}_{\theta} &= \frac{-y\hat{e}_x + x\hat{e}_y}{\sqrt{x^2+y^2}} \\ 
+	\hat{e}_{z} &= \hat{e}_{z}
+	\end{aligned}$
+& $\begin{aligned}
+	\hat{e}_{r} &= \hat{e}_{r} \\
+	\hat{e}_{\theta} &= \hat{e}_{\theta} \\ 
+	\hat{e}_{z} &= \hat{e}_{z}
+	\end{aligned}$
+& $\begin{aligned}
+	\hat{e}_{r} &= \sin\theta\,\hat{e}_{r}+\cos\theta\,\hat{e}_{\theta} \\
+	\hat{e}_{\theta} &= \hat{e}_{\varphi} \\ 
+	\hat{e}_{z} &= \cos\theta\,\hat{e}_{r}-\sin\theta\,\hat{e}_{\theta}
+	\end{aligned}$
+\\\hline
+\raisebox{-1.6em}{\rotatebox{90}{Spherical}}
+& $\begin{aligned}
+	\hat{e}_{r} &= \frac{x\hat{e}_{x} + y\hat{e}_{y} + z\hat{e}_{z}}{\sqrt{x^2+y^2+z^2}} \\
+	\hat{e}_{\theta} &= \frac{z\left(x\hat{e}_{x} + y\hat{e}_{y}\right)-\left(x^2+y^2\right)\hat{e}_{z}}{\sqrt{x^2+y^2+z^2}\sqrt{x^2+y^2}}  \\ 
+	\hat{e}_{\varphi} &= \frac{-y\hat{e}_x + x\hat{e}_y}{\sqrt{x^2+y^2}}
+	\end{aligned}$
+& $\begin{aligned}
+	\hat{e}_{r} &= \frac{r\hat{e}_r + z\hat{e}_z}{\sqrt{r^2+z^2}} \\
+	\hat{e}_{\theta} &= \frac{z\hat{e}_r - r\hat{e}_z}{\sqrt{r^2+z^2}} \\ 
+	\hat{e}_{\varphi} &= \hat{e}_{\varphi}
+	\end{aligned}$
+& $\begin{aligned}
+	\hat{e}_{r} &= \hat{e}_{r} \\
+	\hat{e}_{\theta} &= \hat{e}_{\theta} \\ 
+	\hat{e}_{\varphi} &= \hat{e}_{\varphi}
+	\end{aligned}$
+\end{tabular}}
+\end{center}
+\label{table:basis-transformation}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%================================================================================================
+\end{document}
