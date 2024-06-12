@@ -702,14 +702,23 @@ Even the stream and path line, we still cannot see any rotation.
 \begin{frame}
 	Here, I list some potential function $\phi$ in cylindrical coordinate, so that $\nabla\times\vec{u}=0$:
 	\begin{table}[t]
-	\begin{tabular}{c|c|c|c}
-	$\phi(r,\theta)$	&	$\vec{u}=\nabla \phi$	& 	$\nabla \times \vec{u}$ & $\Gamma_{C}$ \\\hline\hline
-	$\theta$	& 	$\displaystyle \left(1/r\right) \hat{e}_{\theta}$&$0$&$\neq 0$\\\hline
-	$c_0+c_1\cdot\theta$	& 	$ \left(c_1/r\right) \hat{e}_{\theta}$&$0$&$\neq 0$\\\hline
-	$\sum_{s=0}^{n}c_{s}\cdot\theta^{s}$	& $\left(\sum_{s=1}^{n}sc_{s}\cdot\theta^{s-1}/r\right) \hat{e}_{\theta}$&$0$&$\neq 0$\\\hline
-	$f(\theta)$	& 	$\left(f'(\theta)/r\right) \hat{e}_{\theta}$	&	$0$ & ?\\\hline
-	$g(r)\cdot f(\theta)$	& 	$\left(g'(r) f(\theta)\right) \hat{e}_{r} + \left(g(r) f'(\theta)/r\right) \hat{e}_{\theta}$	&	$0$  & ?\\\hline
-	$\vdots$	& 	$\vdots$	&	$0$  & $\vdots$\\
+	\begin{tabular}{c|c|c}
+	$\phi(r,\theta)$	&	$\vec{u}=\nabla \phi$	& 	$\nabla \times \vec{u}$ \\\hline\hline
+	$\theta$	& 	$\displaystyle \left(1/r\right) \hat{e}_{\theta}$&$0$
+	\\\hline
+	$c_0+c_1\cdot\theta$	& 	$ \left(c_1/r\right) \hat{e}_{\theta}$&$0$
+	\\\hline
+	$\sum_{s=0}^{n}c_{s}\cdot\theta^{s}$	& $\left(\sum_{s=1}^{n}sc_{s}\cdot\theta^{s-1}/r\right) \hat{e}_{\theta}$&$0$
+	\\\hline
+	$f(\theta)$	& 	$\left(f'(\theta)/r\right) \hat{e}_{\theta}$	&	$0$
+	\\\hline
+	$\cos\theta$	& 	$\left(-\sin\theta/r\right) \hat{e}_{\theta}$	&	$0$
+	\\\hline
+	$\sin\theta$	& 	$\left(\cos\theta/r\right) \hat{e}_{\theta}$	&	$0$
+	\\\hline
+	$g(r)\cdot f(\theta)$	& 	$\left(g'(r) f(\theta)\right) \hat{e}_{r} + \left(g(r) f'(\theta)/r\right) \hat{e}_{\theta}$	&	$0$
+	\\\hline
+	$\vdots$	& 	$\vdots$	&	$0$  \\
 	\end{tabular}
 	\end{table}
 	where $c_0,c_1,\ldots,c_n$ are constants, and $f$ is any function of $\theta$, $g$ is any function of $r$. 
@@ -721,6 +730,7 @@ In conclude,
 \begin{enumerate}
 \item The \textbf{\textit{curl}} is to measure the rotation at specific point. 
 \item The \textbf{\textit{circulation}} is to measure the rotation in a region.
+\item If the potential function depends on the variable $\theta$, the fluid velocity may have an $\hat{e}_{\theta}$ component. 
 \item If the potential function is discontinuous on the closed path, even if curl is zero, the circulation can still be nonzero.
 \end{enumerate}
 \end{frame}
