@@ -56,3 +56,7 @@
 > 2. proof: Incompressible $\Leftrightarrow$ $\operatorname{div} \textbf{u} = 0$
 > 3. proof: helmholtz-hodge decomposition theorem
 > 4. statement and proof: Kelvin's circulation theorem
+
+### Final Talks
+
+talks [[download](https://raw.githubusercontent.com/Jeffreymaomao/fluid-note.github.io/main/Final/talks.md)] [[preview](https://github.com/Jeffreymaomao/fluid-note.github.io/blob/main/Final/talks/talks.pdf)]
