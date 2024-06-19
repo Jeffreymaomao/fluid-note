@@ -7,6 +7,7 @@
 \usepackage{pdfpages}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{tikzducks}
 
 
 
@@ -90,6 +91,9 @@
 %\useinnertheme{rounded}
 %\useinnertheme{inmargin}
 
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
 %----------------------------------------------------------------------------------------
 %	SELECT OUTER THEME
 %----------------------------------------------------------------------------------------
@@ -108,7 +112,6 @@
 %\setbeamertemplate{footline}[page number] % Uncomment this line to replace the footer line in all slides with a simple slide count
 
 %\setbeamertemplate{navigation symbols}{} % Uncomment this line to remove the navigation symbols from the bottom of all slides
-
 %----------------------------------------------------------------------------------------
 %	PRESENTATION INFORMATION
 %----------------------------------------------------------------------------------------
@@ -138,7 +141,7 @@
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-	\frametitle{Presentation Overview}
+	\frametitle{Outline}
 	\tableofcontents
 \end{frame}
 
@@ -146,10 +149,18 @@
 %	PRESENTATION BODY SLIDES
 %----------------------------------------------------------------------------------------
 
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Outline}
+        \tableofcontents[currentsection, sectionstyle=show/shaded]
+    \end{frame}
+}
 
 %------------------------------------------------
 \section{Curl and Rotation}
 %------------------------------------------------
+
 %----
 \subsection{What is angular velocity?}
 %----
@@ -213,14 +224,16 @@ First we look at a moving particle in a space $\mathbb{R}^2$.
 	Then, how about a group of particles? Average angular velocity?
 	\begin{equation}
 	\tilde{\Omega} = \frac{1}{n}\sum_{i=1}^{n}\vec{\omega}_i 
-	= \sum_{i=1}^{n}\frac{\vec{r}_i\times\vec{v}}{\lVert \vec{r}_i\lVert^2}
+	= \frac{1}{n}\sum_{i=1}^{n}\frac{\vec{r}_i\times\vec{v}}{\lVert \vec{r}_i\lVert^2}
+	\quad\text{or}\quad
+	\iint_{\Sigma} \vec{\omega} \cdot d\vec{A}
 	\end{equation}
 
 	\begin{figure}
     \includegraphics[page=4, width=0.65\linewidth]{imgs.pdf}
 	\end{figure}
 	
-	It seems not to be a good estimating method.
+	It seems to be some kind of approach method.
 \end{frame}
 %%%%%%%%
 %----
@@ -259,13 +272,59 @@ First we look at a moving particle in a space $\mathbb{R}^2$.
 \end{frame}
 %%%%%%%%
 \begin{frame}
+	Now, normalize the preview example, we get
+	\begin{equation}
+	\vec{u}(x,y) = -\frac{y}{\sqrt{x^2+y^2}}\,\hat{e}_x + \frac{x}{\sqrt{x^2+y^2}}\,\hat{e}_y
+	\end{equation}
+	
+	\begin{figure}
+    \includegraphics[page=8, width=0.85\linewidth]{imgs.pdf}
+	\end{figure}
+\end{frame}
+%%%%%%%%
+\begin{frame}
+	Calculating the curl of $\left(-y\,\hat{e}_x + x\,\hat{e}_y\right)/\sqrt{x^2+y^2}$, we get
+	\begin{figure}
+    \includegraphics[page=9, width=0.9\linewidth]{imgs.pdf}
+	\end{figure}
+	
+	However, for $x,y\neq 0$, $\vec{u}(0,y) = -\hat{e}_x$ and $\vec{u}(x,0) = \hat{e}_y$, then $\partial_{y}\vec{u}(0,y) = \partial_{x}\vec{u}(x,0) = 0$.
+\end{frame}
+%%%%%%%%
+\begin{frame}
+	By observing the result of
+	\begin{equation*}
+	\vec{u}(x,y) = -\frac{y}{\sqrt{x^2+y^2}}\,\hat{e}_x + \frac{x}{\sqrt{x^2+y^2}}\,\hat{e}_y,
+	\end{equation*}
+	the two approach methods give
+	\begin{equation}
+	\text{$y$-axis:}
+	\begin{cases}
+	\operatorname{curl}\left(\vec{u}\,\Big|_{x=0}\right) = 0\\[6pt]
+	\operatorname{curl}\left(\vec{u}\,\right)\Big|_{x=0} = 1/y
+	\end{cases},\quad 
+	\text{$x$-axis:}
+	\begin{cases}
+	\operatorname{curl}\left(\vec{u}\,\Big|_{y=0}\right) = 0\\[6pt]
+	\operatorname{curl}\left(\vec{u}\,\right)\Big|_{y=0} = 1/x
+	\end{cases}
+	\end{equation} 
+
+	Here state a conclusion,
+	\begin{quote}
+	\bigskip
+	We cannot determine the rotational effect by looking at vectors at specific points. Instead, we should examine the changes in the vector field to understand its rotational effect.
+	\end{quote}
+\end{frame}
+%%%%%%%%
+\begin{frame}
 	Using another example fluid flow given by
 	\begin{equation}
 	\vec{u}(x,y) = \left(y^3 - 9y\right) \hat{e}_x + \left(x^3 - 9x\right)\hat{e}_y
 	\end{equation}
 	
 	\begin{figure}
-    \includegraphics[page=8, width=0.8\linewidth]{imgs.pdf}
+    \includegraphics[page=10, width=0.8\linewidth]{imgs.pdf}
 	\end{figure}
 
 \end{frame}
@@ -273,7 +332,7 @@ First we look at a moving particle in a space $\mathbb{R}^2$.
 \begin{frame}
 	After we solving the system of non-linear differential equations, we have the path line and moving particles (click \underline{\href{https://youtube.com/shorts/bfFM8ztiRJc?si=1c8Zehqdbq2fMtKz}{here}} to see video). 
 	\begin{figure}
-	\includegraphics[page=9,width=0.9\textwidth]{imgs.pdf}
+	\includegraphics[page=11,width=0.9\textwidth]{imgs.pdf}
     \caption{Left figure is the path line of vector field, reft figure is a snapshot of the simulation video}
 	\end{figure}
 \end{frame}
@@ -305,6 +364,7 @@ First we look at a moving particle in a space $\mathbb{R}^2$.
 	\end{quote}
 \end{frame}
 %%%%%%%%
+
 %------------------------------------------------
 \section{Circulation and Rotation}
 %------------------------------------------------
@@ -373,9 +433,10 @@ First we look at a moving particle in a space $\mathbb{R}^2$.
 	\item Curl $\nabla \times \vec{u}(\vec{r}) = \operatorname{curl}\vec{u}(\vec{r})$ is to measure the rotation at point $\vec{r}$.
 	\item Circulation $\displaystyle \Gamma_{C} = \oint_{C}\vec{u}\cdot d\vec{\ell}$ is to measure the rotation in a region $C$.
 	\end{enumerate}
-	So, now let us consider some special case for $\nabla\times\vec{\vec{u}}=0$. 
+	So, now let us consider some special case for $\nabla\times\vec{u}=0$. 
 \end{frame}
 %%%%%%%%
+
 %------------------------------------------------
 \section{Curl and Circulation}
 %------------------------------------------------
@@ -387,7 +448,7 @@ First we look at a moving particle in a space $\mathbb{R}^2$.
 \frametitle{Vector calculus}
 	First, let us specify our coordinates, that is
 	\begin{figure}
-	\includegraphics[page=10,width=1.0\textwidth]{imgs.pdf}
+	\includegraphics[page=12,width=1.0\textwidth]{imgs.pdf}
 	\end{figure}
 \end{frame}
 %%%%%%%%
@@ -696,34 +757,58 @@ Even the stream and path line, we still cannot see any rotation.
 
 \end{frame}
 %%%%%%%%
-%------------------------------------------------
-\section{Conclusion}
-%------------------------------------------------
 \begin{frame}
-	Here, I list some potential function $\phi$ in cylindrical coordinate, so that $\nabla\times\vec{u}=0$:
+This is because function $\theta$ is \textit{multivalued function}. Here we know that for all potential flow, the curl is zero (irrotational/vorticity-free)
+\begin{equation*}
+\nabla \times \vec{u} = 0,
+\end{equation*}
+
+However, 
+\begin{equation*}
+\left\{\begin{aligned}
+&\text{if $\phi$ is single-valued}
+&&\Rightarrow\quad
+\Gamma_{C} = 0,\quad \text{for any closed curve $C$,}
+\\
+&\text{if $\phi$ is multivalued}
+&&\Rightarrow\quad
+\Gamma_{C} \neq 0,\quad \text{for some closed curves $C$.}
+\end{aligned}\right.
+\end{equation*}
+
+\end{frame}
+
+%%%%%%%%
+\begin{frame}
+	Here, I list some potential flow in cylindrical coordinate:
 	\begin{table}[t]
-	\begin{tabular}{c|c|c}
-	$\phi(r,\theta)$	&	$\vec{u}=\nabla \phi$	& 	$\nabla \times \vec{u}$ \\\hline\hline
-	$\theta$	& 	$\displaystyle \left(1/r\right) \hat{e}_{\theta}$&$0$
+	\begin{tabular}{c|c}
+	$\phi(r,\theta)$	&	$\vec{u}=\nabla \phi$\\\hline\hline
+	$\theta$	& 	$\displaystyle \left(1/r\right) \hat{e}_{\theta}$
 	\\\hline
-	$c_0+c_1\cdot\theta$	& 	$ \left(c_1/r\right) \hat{e}_{\theta}$&$0$
+	$c_0+c_1\cdot\theta$	& 	$ \left(c_1/r\right) \hat{e}_{\theta}$
 	\\\hline
-	$\sum_{s=0}^{n}c_{s}\cdot\theta^{s}$	& $\left(\sum_{s=1}^{n}sc_{s}\cdot\theta^{s-1}/r\right) \hat{e}_{\theta}$&$0$
+	$\sum_{s=0}^{n}c_{s}\cdot\theta^{s}$	& $\left(\sum_{s=1}^{n}sc_{s}\cdot\theta^{s-1}/r\right) \hat{e}_{\theta}$
 	\\\hline
-	$f(\theta)$	& 	$\left(f'(\theta)/r\right) \hat{e}_{\theta}$	&	$0$
+	$f(\theta)$	& 	$\left(f'(\theta)/r\right) \hat{e}_{\theta}$
 	\\\hline
-	$\cos\theta$	& 	$\left(-\sin\theta/r\right) \hat{e}_{\theta}$	&	$0$
+	$\cos\theta$	& 	$\left(-\sin\theta/r\right) \hat{e}_{\theta}$
 	\\\hline
-	$\sin\theta$	& 	$\left(\cos\theta/r\right) \hat{e}_{\theta}$	&	$0$
+	$\sin\theta$	& 	$\left(\cos\theta/r\right) \hat{e}_{\theta}$
 	\\\hline
-	$g(r)\cdot f(\theta)$	& 	$\left(g'(r) f(\theta)\right) \hat{e}_{r} + \left(g(r) f'(\theta)/r\right) \hat{e}_{\theta}$	&	$0$
+	$g(r)\cdot f(\theta)$	& 	$\left(g'(r) f(\theta)\right) \hat{e}_{r} + \left(g(r) f'(\theta)/r\right) \hat{e}_{\theta}$
 	\\\hline
-	$\vdots$	& 	$\vdots$	&	$0$  \\
+	$\vdots$	& 	$\vdots$\\
 	\end{tabular}
 	\end{table}
 	where $c_0,c_1,\ldots,c_n$ are constants, and $f$ is any function of $\theta$, $g$ is any function of $r$. 
+	
+	Note that if the function depends on $\theta$, $\hat{e}_{\theta}$ component of $\vec{u}$ is not zero.
 \end{frame}
 %%%%%%%%
+%------------------------------------------------
+\section{Conclusion}
+%------------------------------------------------
 \begin{frame}
 \frametitle{Conclusion}
 In conclude, 
@@ -737,12 +822,11 @@ In conclude,
 %%%%%%%%
 \begin{frame}
 	\begin{center}
-		\bigskip\bigskip\bigskip
-		{\Huge Thanks!}
-		
-		\bigskip\bigskip
-		
-		{\LARGE Questions? Comments?}
+		\bigskip
+		%{\Huge Thanks!}
+		\begin{center}\begin{tikzpicture}[scale=2.8]
+		\duck[beret=red!70!black, speech={\huge Thanks!}]
+		\end{tikzpicture}\end{center}
 	\end{center}
 \end{frame}
 %------------------------------------------------
