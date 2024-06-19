@@ -25,8 +25,8 @@ def rk4(f, x0, y0, h, n):
     return x, y
 
 def f(x, y):
-    dxdt = -y
-    dydt = 0.0*x
+    dxdt = -y/(x**2+y**2)
+    dydt = x/(x**2+y**2)
     return dxdt, dydt
 
 def streamline_ode(x, y):
@@ -50,8 +50,8 @@ ticks = np.arange(-lim, lim+dticks, dticks)
 arr = np.linspace(-lim*0.9,lim*0.9,20)
 x,y = np.meshgrid(arr, arr)
 
-u = -y
-v = 0.0
+u = -y/(x**2+y**2)
+v = x/(x**2+y**2)
 
 scale = 5.0
 uv_len = np.sqrt(u**2 + v**2)**0.6
@@ -76,8 +76,6 @@ for x0, y0 in zip(x_grid, y_grid):
     x_streams.append(x_stream)
     y_streams.append(y_stream)
 
-
-
 # for x0, y0 in zip(x_grid, y_grid):
 #     x_sol, y_sol = rk4(f, x0, y0, 0.005, 300)
 #     x_sols.append(x_sol)
@@ -92,7 +90,7 @@ ax.quiver(x,y,u,v,color='black', zorder=2)
     # ax.plot(x_sol, y_sol, '-',color=desmos_red, linewidth=0.1, zorder=1)
 
 for x_stream, y_stream in zip(x_streams, y_streams):
-    ax.plot(x_stream, y_stream, '-',color=desmos_blue, linewidth=0.1, zorder=1)
+    ax.plot(x_stream, y_stream, '-',color=desmos_blue, linewidth=0.5, zorder=1)
 
 ax.set_xticks(ticks)
 ax.set_yticks(ticks)
@@ -102,7 +100,7 @@ ax.set_xlim(-lim-1,lim+1)
 ax.set_ylim(-lim-1,lim+1)
 plt.show()
 
-filename = "(-y,0)-stream.pdf"
-fig.savefig(f'assets/{filename}')
+# filename = "(-y,0)-stream.pdf"
+# fig.savefig(f'assets/{filename}')
 
 
